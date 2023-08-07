@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Layout">
+      <UniqueIdentifier>{521341a2-cd05-4f15-b14b-1761af38367f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Layout">
+      <UniqueIdentifier>{caadb17a-e1c9-43dd-9b8b-fbcd76f63eb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Caps">
+      <UniqueIdentifier>{59b55336-7f3d-4f14-ba48-15130b5157f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Img">
+      <UniqueIdentifier>{916cb8c9-05e3-495c-9509-188c1f56f3d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Import">
+      <UniqueIdentifier>{52d9b698-2774-4512-872a-622b8cf6eac0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Import">
+      <UniqueIdentifier>{94b24562-782c-4e51-8c33-9135765236d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Json">
+      <UniqueIdentifier>{d9ab0e1c-8277-41b4-8a4c-5f2ccd247124}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Color">
+      <UniqueIdentifier>{e9c5a43c-5094-435d-9b30-89800522c353}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Color">
+      <UniqueIdentifier>{076eff59-0799-432d-b397-ce1a332cf13a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Kronko.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CapLayoutManager.cpp">
+      <Filter>Source Files\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="PackingLayouter.cpp">
+      <Filter>Source Files\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="SquareLayouter.cpp">
+      <Filter>Source Files\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleLayouter.cpp">
+      <Filter>Source Files\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="KronkoGUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CapDB.cpp">
+      <Filter>Source Files\Import</Filter>
+    </ClCompile>
+    <ClCompile Include="CapImport.cpp">
+      <Filter>Source Files\Import</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonDB.cpp">
+      <Filter>Source Files\Import</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorPicker.cpp">
+      <Filter>Source Files\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorAvg.cpp">
+      <Filter>Source Files\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorGauss.cpp">
+      <Filter>Source Files\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorPoint.cpp">
+      <Filter>Source Files\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="Cap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImagePreprocess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CapMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CapAssembley.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorCustom.cpp">
+      <Filter>Source Files\Color</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Kronko.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CapLayoutManager.h">
+      <Filter>Header Files\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="PackingLayouter.h">
+      <Filter>Header Files\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="SquareLayouter.h">
+      <Filter>Header Files\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleLayouter.h">
+      <Filter>Header Files\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="KronkoGUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CapDB.h">
+      <Filter>Header Files\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="CapImport.h">
+      <Filter>Header Files\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonDB.h">
+      <Filter>Header Files\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorPicker.h">
+      <Filter>Header Files\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorAvg.h">
+      <Filter>Header Files\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorGauss.h">
+      <Filter>Header Files\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorPoint.h">
+      <Filter>Header Files\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="Cap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CapMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorCustom.h">
+      <Filter>Header Files\Color</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Kronko.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Images\4Head.png">
+      <Filter>Resource Files\Img</Filter>
+    </Image>
+    <Image Include="Images\baboon.jpg">
+      <Filter>Resource Files\Img</Filter>
+    </Image>
+    <Image Include="Images\steve">
+      <Filter>Resource Files\Img</Filter>
+    </Image>
+    <Image Include="Images\astra">
+      <Filter>Resource Files\Img</Filter>
+    </Image>
+    <Image Include="Images\lena">
+      <Filter>Resource Files\Img</Filter>
+    </Image>
+    <Image Include="Images\holsten">
+      <Filter>Resource Files\Img</Filter>
+    </Image>
+    <Image Include="Bottlecap\budweiser.png">
+      <Filter>Resource Files\Caps</Filter>
+    </Image>
+    <Image Include="Bottlecap\Carlsberg.png">
+      <Filter>Resource Files\Caps</Filter>
+    </Image>
+    <Image Include="Bottlecap\Dithmarscher.png">
+      <Filter>Resource Files\Caps</Filter>
+    </Image>
+    <Image Include="Bottlecap\Holsten.png">
+      <Filter>Resource Files\Caps</Filter>
+    </Image>
+    <Image Include="Bottlecap\Kellerbier.png">
+      <Filter>Resource Files\Caps</Filter>
+    </Image>
+    <Image Include="Bottlecap\Kiezmische.png">
+      <Filter>Resource Files\Caps</Filter>
+    </Image>
+    <Image Include="Bottlecap\Nordlicht.png">
+      <Filter>Resource Files\Caps</Filter>
+    </Image>
+    <Image Include="Bottlecap\Ratsherren_Pink.png">
+      <Filter>Resource Files\Caps</Filter>
+    </Image>
+    <Image Include="Bottlecap\test_black.png">
+      <Filter>Resource Files\Caps</Filter>
+    </Image>
+    <Image Include="Bottlecap\test_blue.png">
+      <Filter>Resource Files\Caps</Filter>
+    </Image>
+    <Image Include="Bottlecap\test_green.png">
+      <Filter>Resource Files\Caps</Filter>
+    </Image>
+    <Image Include="Bottlecap\test_magenta.png">
+      <Filter>Resource Files\Caps</Filter>
+    </Image>
+    <Image Include="Bottlecap\test_red.png">
+      <Filter>Resource Files\Caps</Filter>
+    </Image>
+    <Image Include="Bottlecap\test_x.png">
+      <Filter>Resource Files\Caps</Filter>
+    </Image>
+    <Image Include="Bottlecap\test_yellow.png">
+      <Filter>Resource Files\Caps</Filter>
+    </Image>
+    <Image Include="Bottlecap\Veltins.png">
+      <Filter>Resource Files\Caps</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="JSON\db.json">
+      <Filter>Resource Files\Json</Filter>
+    </None>
+  </ItemGroup>
+</Project>

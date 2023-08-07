@@ -1,0 +1,448 @@
+{
+    "Brand": "budweiser",
+    "Color": [
+        61,
+        149,
+        126
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/budweiser.png",
+    "Priority": 0
+}
+{
+    "Brand": "Carlsberg",
+    "Color": [
+        152,
+        231,
+        187
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/Carlsberg.png",
+    "Priority": 0
+}
+{
+    "Brand": "Dithmarscher",
+    "Color": [
+        237,
+        254,
+        251
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/Dithmarscher.png",
+    "Priority": 0
+}
+{
+    "Brand": "Holsten",
+    "Color": [
+        98,
+        105,
+        178
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/Holsten.png",
+    "Priority": 0
+}
+{
+    "Brand": "Kellerbier",
+    "Color": [
+        105,
+        166,
+        192
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/Kellerbier.png",
+    "Priority": 0
+}
+{
+    "Brand": "Kiezmische",
+    "Color": [
+        77,
+        67,
+        79
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/Kiezmische.png",
+    "Priority": 0
+}
+{
+    "Brand": "Nordlicht",
+    "Color": [
+        117,
+        72,
+        39
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/Nordlicht.png",
+    "Priority": 0
+}
+{
+    "Brand": "Ratsherren_Pink",
+    "Color": [
+        200,
+        198,
+        174
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/Ratsherren_Pink.png",
+    "Priority": 0
+}
+{
+    "Brand": "test_black",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/test_black.png",
+    "Priority": 0
+}
+{
+    "Brand": "test_blue",
+    "Color": [
+        255,
+        17,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/test_blue.png",
+    "Priority": 0
+}
+{
+    "Brand": "test_green",
+    "Color": [
+        0,
+        255,
+        4
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/test_green.png",
+    "Priority": 0
+}
+{
+    "Brand": "test_magenta",
+    "Color": [
+        255,
+        0,
+        216
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/test_magenta.png",
+    "Priority": 0
+}
+{
+    "Brand": "test_red",
+    "Color": [
+        0,
+        38,
+        255
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/test_red.png",
+    "Priority": 0
+}
+{
+    "Brand": "test_x",
+    "Color": [
+        4,
+        0,
+        255
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/test_x.png",
+    "Priority": 0
+}
+{
+    "Brand": "test_yellow",
+    "Color": [
+        0,
+        221,
+        255
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/test_yellow.png",
+    "Priority": 0
+}
+{
+    "Brand": "Veltins",
+    "Color": [
+        91,
+        87,
+        62
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/Veltins.png",
+    "Priority": 0
+}
+{
+    "Brand": "budweiser",
+    "Color": [
+        61,
+        149,
+        126
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/budweiser.png",
+    "Priority": 0
+}
+{
+    "Brand": "Carlsberg",
+    "Color": [
+        152,
+        231,
+        187
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/Carlsberg.png",
+    "Priority": 0
+}
+{
+    "Brand": "Dithmarscher",
+    "Color": [
+        237,
+        254,
+        251
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/Dithmarscher.png",
+    "Priority": 0
+}
+{
+    "Brand": "Holsten",
+    "Color": [
+        98,
+        105,
+        178
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/Holsten.png",
+    "Priority": 0
+}
+{
+    "Brand": "Kellerbier",
+    "Color": [
+        105,
+        166,
+        192
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/Kellerbier.png",
+    "Priority": 0
+}
+{
+    "Brand": "Kiezmische",
+    "Color": [
+        77,
+        67,
+        79
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/Kiezmische.png",
+    "Priority": 0
+}
+{
+    "Brand": "Nordlicht",
+    "Color": [
+        117,
+        72,
+        39
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/Nordlicht.png",
+    "Priority": 0
+}
+{
+    "Brand": "Ratsherren_Pink",
+    "Color": [
+        200,
+        198,
+        174
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/Ratsherren_Pink.png",
+    "Priority": 0
+}
+{
+    "Brand": "test_black",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/test_black.png",
+    "Priority": 0
+}
+{
+    "Brand": "test_blue",
+    "Color": [
+        255,
+        17,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/test_blue.png",
+    "Priority": 0
+}
+{
+    "Brand": "test_green",
+    "Color": [
+        0,
+        255,
+        4
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/test_green.png",
+    "Priority": 0
+}
+{
+    "Brand": "test_magenta",
+    "Color": [
+        255,
+        0,
+        216
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/test_magenta.png",
+    "Priority": 0
+}
+{
+    "Brand": "test_red",
+    "Color": [
+        0,
+        38,
+        255
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/test_red.png",
+    "Priority": 0
+}
+{
+    "Brand": "test_x",
+    "Color": [
+        4,
+        0,
+        255
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/test_x.png",
+    "Priority": 0
+}
+{
+    "Brand": "test_yellow",
+    "Color": [
+        0,
+        221,
+        255
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/test_yellow.png",
+    "Priority": 0
+}
+{
+    "Brand": "Veltins",
+    "Color": [
+        91,
+        87,
+        62
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "Path": "./BottleCap/Veltins.png",
+    "Priority": 0
+}
