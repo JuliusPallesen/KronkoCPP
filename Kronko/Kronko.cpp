@@ -78,6 +78,13 @@ int main(int argc, char* argv[])
 			break;
 		case '1': // SQUARE LAYOUTER
 			circ_px = (int)(((float)img.size().width / (float)wdth_mm) * CAP_SIZE);
+			//	rewrite Layouter to work in mm instead of px? 
+			//	(26 )(26 )(26 ) caps (mm)
+			//	(100)(100)(100) caps (px)
+			//	<----------> wdth_mm (98mm)
+			//  <----------> original px_width (221)
+			//	<----------> new px_width -> 300
+			//				
 			cap_positions = lom->createLayout(img.size(), wdth_mm);
 			caps = cap_importer.getCaps();
 			if (caps.empty()) {

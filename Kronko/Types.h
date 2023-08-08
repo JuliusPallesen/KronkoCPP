@@ -1,5 +1,13 @@
 #pragma once
 
+#define CAP_BRAND	"Brand"
+#define CAP_PATH	"Path"
+#define CAP_PRIO	"Priority"
+#define CAP_COLOR	"Color"
+#define CAP_DIR		"Direction"
+#define CAP_ID		"ID"
+#define CAP_MAX		"Amount"
+
 // Bottlecaps have a 26mm diameter
 const int CAP_SIZE = 26;
 
