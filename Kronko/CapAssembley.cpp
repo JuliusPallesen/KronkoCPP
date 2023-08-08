@@ -1,5 +1,4 @@
-#include <opencv2/opencv.hpp>
-
+#include "CapAssembley.h"
 // TODO:
 //		- Fix alpha channel not being considered for PNG
 //		- Add option for Directional insertion (?)
@@ -23,4 +22,17 @@ void overlayImage(cv::Mat& img1, cv::Mat & capimg, cv::Point position, int size)
 
 	// Add the transformed image2 to the ROI of img1
 	cv::addWeighted(img1_roi, 0, img2, 1.0, 0.0, img1_roi);
+}
+
+void assembleMapping(cv::Mat & img, CapMapping map, std::vector<Cap> caps,int circ_px) {
+	for (int i = 0; i < map.size(); i++)
+	{
+		if (!map[i].empty())
+		{
+			for (int j = 0; j < map[i].size(); j++)
+			{
+				overlayImage(img, caps[i].img, map[i][j], circ_px);
+			}
+		}
+	}
 }

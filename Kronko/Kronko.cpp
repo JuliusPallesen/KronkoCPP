@@ -84,20 +84,8 @@ int main(int argc, char* argv[])
 				std::cerr << "No Caps Loaded." << std::endl;
 				return 1;
 			}
-			//map = cm.createCapMappingSimple(img,cap_positions,caps);
 			map = cm.createCapMappingHist(img, cap_positions, caps);
-			//std::cout << "final mapping:" << std::endl;
-			for (int i = 0; i < map.size(); i++)
-			{
-				if (!map[i].empty())
-				{
-					for (int j = 0; j < map[i].size(); j++)
-					{
-						std::cout << caps[i].toString() << std::endl;
-						overlayImage(img,caps[i].img,map[i][j],circ_px);
-					}
-				}
-			}
+			assembleMapping(img,map,caps,circ_px);
 			for (auto& p : cap_positions) {
 				circle(img, p, circ_px / 2, { 255,255,255 }, 1);
 			}
