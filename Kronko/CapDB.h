@@ -3,6 +3,7 @@
 #include <filesystem>
 #include <string>
 #include <vector>
+#include "Types.h"
 
 namespace fs = std::filesystem;
 class CapDB
@@ -13,7 +14,7 @@ public:
 	CapDB(std::string path);
 
 	virtual void storeCap(Cap& cap);
-	virtual void storeCaps(std::vector<Cap> caps);
-	virtual std::vector<Cap> getCaps();
+	virtual void storeCaps(Caps caps);
+	virtual Caps getCaps();
 };
 

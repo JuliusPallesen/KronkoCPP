@@ -1,6 +1,6 @@
 #include "JsonDB.h"
 
-void JsonDB::storeCap(Cap& cap)
+void JsonDB::storeCap(Cap & cap)
 {
 	//TODO: Maybe check if Brand already exists
 	std::ofstream jsonFile(this->path, std::ios::app);
@@ -15,7 +15,7 @@ void JsonDB::storeCap(Cap& cap)
 	}
 }
 
-void JsonDB::storeCaps(std::vector<Cap> caps)
+void JsonDB::storeCaps(Caps caps)
 {
 	std::ofstream jsonFile(this->path, std::ios::app);
 	if (jsonFile.is_open())
@@ -31,11 +31,10 @@ void JsonDB::storeCaps(std::vector<Cap> caps)
 	}
 }
 
-std::vector<Cap> JsonDB::getCaps()
+Caps JsonDB::getCaps()
 {
-
 	//Rewrite to return JSON objects, init images parallel
-	std::vector<Cap> caps;
+	Caps caps;
 	std::ifstream jsonFile(this->path);
 	if (jsonFile.is_open()) {
 		json jsonData;

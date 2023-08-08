@@ -8,11 +8,11 @@ void CapDB::storeCap(Cap& cap)
 {
 }
 
-void CapDB::storeCaps(std::vector<Cap> caps)
+void CapDB::storeCaps(Caps caps)
 {
 }
 
-std::vector<Cap> CapDB::getCaps()
+Caps CapDB::getCaps()
 {
-	return std::vector<Cap>();
+	return Caps();
 }

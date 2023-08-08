@@ -60,8 +60,8 @@ int main(int argc, char* argv[])
 			Rect windowRect = getWindowImageRect("Kronko");
 			int windowWidth = windowRect.width;
 			int windowHeight = windowRect.height;
-			//resizeImage(img, windowWidth, windowHeight);
-			//resizeWindow("Kronko", windowWidth, windowHeight);
+			resizeImage(img, windowWidth, windowHeight);
+			resizeWindow("Kronko", windowWidth, windowHeight);
 		}
 		catch (...) {
 			return 1; //Window has been closed
@@ -77,15 +77,8 @@ int main(int argc, char* argv[])
 			img = backup.clone();
 			break;
 		case '1': // SQUARE LAYOUTER
-			circ_px = (int)(((float)img.size().width / (float)wdth_mm) * CAP_SIZE);
-			//	rewrite Layouter to work in mm instead of px? 
-			//	(26 )(26 )(26 ) caps (mm)
-			//	(100)(100)(100) caps (px)
-			//	<----------> wdth_mm (98mm)
-			//  <----------> original px_width (221)
-			//	<----------> new px_width -> 300
-			//				
-			cap_positions = lom->createLayout(img.size(), wdth_mm);
+			cap_positions = lom->createLayoutmm(img, wdth_mm);
+			circ_px = (int)(((float)img.size().width / (float)wdth_mm) * CAP_SIZE);				
 			caps = cap_importer.getCaps();
 			if (caps.empty()) {
 				std::cerr << "No Caps Loaded." << std::endl;
