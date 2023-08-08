@@ -149,6 +149,12 @@
     <ClInclude Include="ColorCustom.h">
       <Filter>Header Files\Color</Filter>
     </ClInclude>
+    <ClInclude Include="CapAssembley.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Kronko.rc">

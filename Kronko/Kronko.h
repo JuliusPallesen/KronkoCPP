@@ -12,3 +12,5 @@
 #include "ColorPicker.h"
 #include "ColorPoint.h"
 #include "CapMap.h"
+#include "CapAssembley.h"
+#include "Types.h"

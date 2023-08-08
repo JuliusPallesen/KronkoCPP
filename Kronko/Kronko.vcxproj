@@ -171,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cap.h" />
+    <ClInclude Include="CapAssembley.h" />
     <ClInclude Include="CapDB.h" />
     <ClInclude Include="CapImport.h" />
     <ClInclude Include="CapLayoutManager.h" />
@@ -187,6 +188,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="SquareLayouter.h" />
     <ClInclude Include="TriangleLayouter.h" />
+    <ClInclude Include="Types.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Kronko.rc" />

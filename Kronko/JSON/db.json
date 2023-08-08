@@ -2,9 +2,9 @@
     "Amount": -1,
     "Brand": "budweiser",
     "Color": [
-        0,
-        0,
-        0
+        255,
+        124,
+        215
     ],
     "Direction": [
         0,
@@ -18,9 +18,9 @@
     "Amount": -1,
     "Brand": "Carlsberg",
     "Color": [
-        0,
-        0,
-        0
+        255,
+        254,
+        254
     ],
     "Direction": [
         0,
@@ -34,9 +34,9 @@
     "Amount": -1,
     "Brand": "Dithmarscher",
     "Color": [
-        0,
-        0,
-        0
+        255,
+        113,
+        125
     ],
     "Direction": [
         0,
@@ -50,9 +50,9 @@
     "Amount": -1,
     "Brand": "Holsten",
     "Color": [
-        0,
-        0,
-        0
+        255,
+        190,
+        191
     ],
     "Direction": [
         0,
@@ -66,9 +66,9 @@
     "Amount": -1,
     "Brand": "Kellerbier",
     "Color": [
-        0,
-        0,
-        0
+        154,
+        181,
+        255
     ],
     "Direction": [
         0,
@@ -82,9 +82,9 @@
     "Amount": -1,
     "Brand": "Kiezmische",
     "Color": [
-        0,
-        0,
-        0
+        154,
+        255,
+        38
     ],
     "Direction": [
         0,
@@ -98,9 +98,9 @@
     "Amount": -1,
     "Brand": "Nordlicht",
     "Color": [
-        0,
-        0,
-        0
+        255,
+        187,
+        190
     ],
     "Direction": [
         0,
@@ -114,9 +114,9 @@
     "Amount": -1,
     "Brand": "Ratsherren_Pink",
     "Color": [
-        0,
-        0,
-        0
+        186,
+        255,
+        210
     ],
     "Direction": [
         0,
@@ -130,7 +130,7 @@
     "Amount": -1,
     "Brand": "test_black",
     "Color": [
-        0,
+        255,
         0,
         0
     ],
@@ -146,9 +146,9 @@
     "Amount": -1,
     "Brand": "test_blue",
     "Color": [
-        0,
-        0,
-        0
+        255,
+        255,
+        17
     ],
     "Direction": [
         0,
@@ -162,9 +162,9 @@
     "Amount": -1,
     "Brand": "test_green",
     "Color": [
+        255,
         0,
-        0,
-        0
+        255
     ],
     "Direction": [
         0,
@@ -178,8 +178,8 @@
     "Amount": -1,
     "Brand": "test_magenta",
     "Color": [
-        0,
-        0,
+        255,
+        255,
         0
     ],
     "Direction": [
@@ -194,9 +194,9 @@
     "Amount": -1,
     "Brand": "test_red",
     "Color": [
+        255,
         0,
-        0,
-        0
+        38
     ],
     "Direction": [
         0,
@@ -226,9 +226,9 @@
     "Amount": -1,
     "Brand": "test_yellow",
     "Color": [
+        255,
         0,
-        0,
-        0
+        221
     ],
     "Direction": [
         0,
@@ -242,9 +242,9 @@
     "Amount": -1,
     "Brand": "Veltins",
     "Color": [
-        0,
-        0,
-        0
+        255,
+        175,
+        179
     ],
     "Direction": [
         0,

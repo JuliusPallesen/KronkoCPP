@@ -1,6 +1,6 @@
 #include "CapImport.h"
 
-CapImport::CapImport(CapDB* db, ColorPicker cp) : db(db), color_picker(cp) {}
+CapImport::CapImport(CapDB* db, ColorPicker * cp) : db(db), color_picker(cp) {}
 
 void CapImport::addCap(Cap & cap) {
     this->caps.push_back(cap);
@@ -13,8 +13,7 @@ void CapImport::addCap(fs::path path) {
 }
 
 Cap CapImport::makeCap(fs::path path, int prio) {
-    Mat img = imread(path.string(), IMREAD_COLOR);
-    // TODO: Throw Exception instead.
+    Mat img = imread(path.string(), IMREAD_UNCHANGED);
     if (img.empty()) {
         throw std::runtime_error("Could not read the image: " + path.string());
     }
@@ -53,7 +52,7 @@ std::vector<Cap> CapImport::getCaps()
 
 cv::Vec3b CapImport::getColVec(cv::Mat& img, cv::Vec3b * c)
 {
-    if (c == nullptr) return color_picker.getColorV(img);
+    if (c == nullptr) return color_picker->getColorV(img);
     return *c;  
 }
 

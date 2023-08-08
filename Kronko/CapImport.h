@@ -21,7 +21,7 @@ namespace fs = std::filesystem;
 class CapImport
 {
 public:
-	CapImport(CapDB * db, ColorPicker cp = ColorPoint::ColorPicker());
+	CapImport(CapDB * db, ColorPicker *  cp = new ColorPicker());
 	void addCap(Cap& cap);
 	void addCap(fs::path path);
 	void addFolder(const std::string path);
@@ -29,7 +29,7 @@ public:
 protected:
 	CapDB * db;
 	std::vector<Cap> caps;
-	ColorPicker color_picker;
+	ColorPicker * color_picker;
 	int ids;
 
 	cv::Vec3b getColVec(cv::Mat& img, cv::Vec3b * c = nullptr);

@@ -2,9 +2,6 @@
 
 using namespace cv;
 
-const int CAP_SIZE = 26; // Bottlecaps have a 26mm diameter
-
-
 void resizeImage(cv::Mat& image, int& windowWidth, int& windowHeight) {
 	//TODO: Fix / responding to feedback
 	double imageAspectRatio = static_cast<double>(image.cols) / image.rows;
@@ -33,16 +30,20 @@ int main(int argc, char* argv[])
 	CapLayoutManager* lom = new SquareLayouter;
 	std::vector<cv::Point> cap_positions;
 
+	ColorPicker * cp = new ColorPoint();
+
 	JsonDB db("./JSON/db.json");
-	CapImport cap_importer(&db);
-	
+	CapImport cap_importer(&db,cp);
+
 	// TODO: Open File Dialogue instead
 	std::string lena_path = "./Images/lena.jpg";
 	Mat img = imread(lena_path, IMREAD_COLOR);
 	Mat backup = img.clone();
 
-	std::vector<Cap> caps;
-	
+	Caps caps;
+	CapMapping map;
+	CapMap cm = CapMap(cp, 20);
+
 	//TODO: Throw Exception instead
 	if (img.empty())
 	{
@@ -83,10 +84,21 @@ int main(int argc, char* argv[])
 				std::cerr << "No Caps Loaded." << std::endl;
 				return 1;
 			}
-			std::cout << "Img size: " << img.size().width << "," << img.size().height << std::endl;
+			//map = cm.createCapMappingSimple(img,cap_positions,caps);
+			map = cm.createCapMappingHist(img, cap_positions, caps);
+			//std::cout << "final mapping:" << std::endl;
+			for (int i = 0; i < map.size(); i++)
+			{
+				if (!map[i].empty())
+				{
+					for (int j = 0; j < map[i].size(); j++)
+					{
+						std::cout << caps[i].toString() << std::endl;
+						overlayImage(img,caps[i].img,map[i][j],circ_px);
+					}
+				}
+			}
 			for (auto& p : cap_positions) {
-				std::cout << p.x << "," << p.y << std::endl;
-				Vec3i p_col = Vec3i(img.at<Vec3b>(p));
 				circle(img, p, circ_px / 2, { 255,255,255 }, 1);
 			}
 			break;

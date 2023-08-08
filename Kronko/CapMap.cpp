@@ -1,14 +1,13 @@
 #include "CapMap.h"
 
 
-CapMap::CapMap(ColorPicker cp, int max, int r) : color_picker(cp), max_amount(max), radius(r)
+CapMap::CapMap(ColorPicker * cp, int max): color_picker(cp), max_amount(max)
 {
 	this->max_amount = max;
 	this->color_picker = cp;
-	this->radius = r;
 }
 
-std::vector<std::vector<cv::Point>> CapMap::createCapMappingSimple(cv::Mat& img, Positions& positions, Caps& caps) {
+CapMapping CapMap::createCapMappingSimple(cv::Mat& img, Positions& positions, Caps& caps) {
 	ColorDistanceMap data = getAllDistances(getColorValues(img, positions), caps);
 	std::vector<std::vector<cv::Point>> mapping(caps.size());
 	for (int i = 0; i < data.size(); ++i) {
@@ -17,9 +16,9 @@ std::vector<std::vector<cv::Point>> CapMap::createCapMappingSimple(cv::Mat& img,
 	return mapping;
 }
 
-std::vector<std::vector<cv::Point>> CapMap::createCapMappingHist(cv::Mat & img, Positions & positions, Caps & caps) {
+CapMapping CapMap::createCapMappingHist(cv::Mat & img, Positions & positions, Caps & caps) {
 	ColorDistanceMap data = getAllDistances(getColorValues(img, positions), caps);
-	std::vector<std::vector<cv::Point>> mapping(caps.size());
+	CapMapping mapping(caps.size());
 	bool* positions_used = new bool[data.size() + 1];
 	std::fill_n(positions_used, data.size() + 1, false);
 	int positions_used_num = 0;
@@ -27,6 +26,7 @@ std::vector<std::vector<cv::Point>> CapMap::createCapMappingHist(cv::Mat & img, 
 	int next_best_j = 0;
 	int j = 0;
 	double smallest_unused_distance = 9999.99;
+	std::cout << "MAX AMOUNT " << this->max_amount << std::endl;
 	while (positions_used_num <= positions.size()) {
 		for (int i = 0; i < data.size(); ++i)
 		{
@@ -73,7 +73,7 @@ std::vector<std::tuple<int,double>> CapMap::getColorVDistances(cv::Vec3i col, Ca
 Colors CapMap::getColorValues(cv::Mat& img, Positions positions) {
 	Colors colors;
 	for (cv::Point & p: positions) {
-		colors.push_back(this->color_picker.getColorV(img, p));
+		colors.push_back(this->color_picker->getColorV(img, p));
 	}
 	return colors;
 }
