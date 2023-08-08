@@ -3,42 +3,42 @@
   <Class Name="Cap" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAACQAEAAEAAACAAAAAAAAAACAAAAAAAAgAAA=</HashCode>
+      <HashCode>AAEAABAAACQAEAAEAAACBAAAAAAAAACAAAAAAAAgAgA=</HashCode>
       <FileName>Cap.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CapImport" Collapsed="true">
     <Position X="0.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAIAAAAAAAAAAAACAAAgCCEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AQAAIAAAAAAQAgAAACIAAgACAAAAAAAAAAAAAIAEAgA=</HashCode>
       <FileName>CapImport.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CapLayoutManager" Collapsed="true">
     <Position X="2.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>CapLayoutManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PackingLayouter" Collapsed="true">
     <Position X="0.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>PackingLayouter.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SquareLayouter" Collapsed="true">
     <Position X="2.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>SquareLayouter.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TriangleLayouter" Collapsed="true">
     <Position X="5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>TriangleLayouter.h</FileName>
     </TypeIdentifier>
   </Class>

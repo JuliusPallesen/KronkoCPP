@@ -15,7 +15,7 @@ void JsonDB::storeCap(Cap & cap)
 	}
 }
 
-void JsonDB::storeCaps(Caps caps)
+void JsonDB::storeCaps(std::vector<Cap> caps)
 {
 	std::ofstream jsonFile(this->path, std::ios::app);
 	if (jsonFile.is_open())
@@ -31,10 +31,10 @@ void JsonDB::storeCaps(Caps caps)
 	}
 }
 
-Caps JsonDB::getCaps()
+std::vector<Cap> JsonDB::getCaps()
 {
 	//Rewrite to return JSON objects, init images parallel
-	Caps caps;
+	std::vector<Cap> caps;
 	std::ifstream jsonFile(this->path);
 	if (jsonFile.is_open()) {
 		json jsonData;

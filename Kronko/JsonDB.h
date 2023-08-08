@@ -8,7 +8,7 @@ class JsonDB :
 public:
     using CapDB::CapDB;
     void storeCap(Cap & cap) override;
-    void storeCaps(Caps caps) override;
-    Caps getCaps() override;
+    void storeCaps(std::vector<Cap> caps) override;
+    std::vector<Cap> getCaps() override;
 };
 

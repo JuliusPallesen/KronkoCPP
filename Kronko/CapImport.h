@@ -22,10 +22,10 @@ public:
 	void addCap(Cap& cap);
 	void addCap(fs::path path);
 	void addFolder(const std::string path);
-	Caps getCaps();
+	std::vector<Cap> getCaps();
 protected:
 	CapDB * db;
-	Caps caps;
+	std::vector<Cap> caps;
 	ColorPicker * color_picker;
 	int ids;
 

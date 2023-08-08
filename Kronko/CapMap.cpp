@@ -7,7 +7,7 @@ CapMap::CapMap(ColorPicker * cp, int max): color_picker(cp), max_amount(max)
 	this->color_picker = cp;
 }
 
-CapMapping CapMap::createCapMappingSimple(cv::Mat& img, Positions& positions, Caps& caps) {
+CapMapping CapMap::createCapMappingSimple(cv::Mat& img, std::vector<cv::Point> & positions, std::vector<Cap>& caps) {
 	ColorDistanceMap data = getAllDistances(getColorValues(img, positions), caps);
 	std::vector<std::vector<cv::Point>> mapping(caps.size());
 	for (int i = 0; i < data.size(); ++i) {
@@ -16,7 +16,7 @@ CapMapping CapMap::createCapMappingSimple(cv::Mat& img, Positions& positions, Ca
 	return mapping;
 }
 
-CapMapping CapMap::createCapMappingHist(cv::Mat & img, Positions & positions, Caps & caps) {
+CapMapping CapMap::createCapMappingHist(cv::Mat & img, std::vector<cv::Point>& positions, std::vector<Cap>& caps) {
 	ColorDistanceMap data = getAllDistances(getColorValues(img, positions), caps);
 	CapMapping mapping(caps.size());
 	bool* positions_used = new bool[data.size() + 1];
@@ -50,7 +50,7 @@ CapMapping CapMap::createCapMappingHist(cv::Mat & img, Positions & positions, Ca
 	delete[] positions_used;
 	return mapping;
 }
-ColorDistanceMap CapMap::getAllDistances(Colors cols, Caps& caps) {
+ColorDistanceMap CapMap::getAllDistances(std::vector<cv::Vec3i> cols, std::vector<Cap>& caps) {
 	ColorDistanceMap data;
 	for (cv::Vec3i & color: cols) {
 		data.push_back(this->getColorVDistances(color, caps));
@@ -58,7 +58,7 @@ ColorDistanceMap CapMap::getAllDistances(Colors cols, Caps& caps) {
 	return data;
 }
 
-std::vector<std::tuple<int,double>> CapMap::getColorVDistances(cv::Vec3i col, Caps & caps) {
+std::vector<std::tuple<int,double>> CapMap::getColorVDistances(cv::Vec3i col, std::vector<Cap>& caps) {
 	std::vector<std::tuple<int, double>> distance_map;
 	double euclidian_distance;
 	for (int i = 0; i < caps.size(); ++i) {
@@ -70,8 +70,8 @@ std::vector<std::tuple<int,double>> CapMap::getColorVDistances(cv::Vec3i col, Ca
 		});
 	return distance_map;
 }
-Colors CapMap::getColorValues(cv::Mat& img, Positions positions) {
-	Colors colors;
+std::vector<cv::Vec3i> CapMap::getColorValues(cv::Mat& img, std::vector<cv::Point> positions) {
+	std::vector<cv::Vec3i> colors;
 	for (cv::Point & p: positions) {
 		colors.push_back(this->color_picker->getColorV(img, p));
 	}

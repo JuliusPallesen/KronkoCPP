@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
 	Mat img = imread(lena_path, IMREAD_COLOR);
 	Mat backup = img.clone();
 
-	Caps caps;
+	std::vector<Cap> caps;
 	CapMapping map;
 	CapMap cm = CapMap(cp, 20);
 

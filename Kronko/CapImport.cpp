@@ -41,7 +41,7 @@ void CapImport::addFolder(const std::string path) {
     this->caps.insert(this->caps.end(), caps.begin(), caps.end());
 }
 
-Caps CapImport::getCaps()
+std::vector<Cap> CapImport::getCaps()
 { 
     if (this->caps.empty())
     {

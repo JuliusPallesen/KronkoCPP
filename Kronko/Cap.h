@@ -2,7 +2,15 @@
 #include <string>
 #include <nlohmann/json.hpp>
 #include <opencv2/opencv.hpp>
-#include "Types.h"
+
+#define CAP_BRAND	"Brand"
+#define CAP_PATH	"Path"
+#define CAP_PRIO	"Priority"
+#define CAP_COLOR	"Color"
+#define CAP_DIR		"Direction"
+#define CAP_ID		"ID"
+#define CAP_MAX		"Amount"
+
 using json = nlohmann::json;
 
 class Cap
