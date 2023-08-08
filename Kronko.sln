@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.33801.447
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Kronko", "Kronko\Kronko.vcxproj", "{8DA99664-23CA-42CA-95F5-94731D6026DD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KronkoTest", "KronkoTest\KronkoTest.vcxproj", "{E951B660-8693-4F1D-98EB-C5382FB17901}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{8DA99664-23CA-42CA-95F5-94731D6026DD}.Release|x64.Build.0 = Release|x64
 		{8DA99664-23CA-42CA-95F5-94731D6026DD}.Release|x86.ActiveCfg = Release|Win32
 		{8DA99664-23CA-42CA-95F5-94731D6026DD}.Release|x86.Build.0 = Release|Win32
+		{E951B660-8693-4F1D-98EB-C5382FB17901}.Debug|x64.ActiveCfg = Debug|x64
+		{E951B660-8693-4F1D-98EB-C5382FB17901}.Debug|x64.Build.0 = Debug|x64
+		{E951B660-8693-4F1D-98EB-C5382FB17901}.Debug|x86.ActiveCfg = Debug|Win32
+		{E951B660-8693-4F1D-98EB-C5382FB17901}.Debug|x86.Build.0 = Debug|Win32
+		{E951B660-8693-4F1D-98EB-C5382FB17901}.Release|x64.ActiveCfg = Release|x64
+		{E951B660-8693-4F1D-98EB-C5382FB17901}.Release|x64.Build.0 = Release|x64
+		{E951B660-8693-4F1D-98EB-C5382FB17901}.Release|x86.ActiveCfg = Release|Win32
+		{E951B660-8693-4F1D-98EB-C5382FB17901}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

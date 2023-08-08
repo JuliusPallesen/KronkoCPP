@@ -1,5 +1,9 @@
 #include <opencv2/opencv.hpp>
 
+// TODO:
+//		- Fix alpha channel not being considered for PNG
+//		- Add option for Directional insertion (?)
+//		- Calculate Directional leaning of points (May not always make sense but could lead to cool results)
 void overlayImage(cv::Mat& img1, cv::Mat& img2, cv::Point position, int size) {
 	cv::resize(img2, img2, cv::Size(size, size)); // Resize image2 to the desired size
 

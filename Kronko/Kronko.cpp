@@ -79,12 +79,19 @@ int main(int argc, char* argv[])
 			circ_px = (int)(((float)img.size().width / (float)wdth_mm) * CAP_SIZE);
 			cap_positions = lom->createLayout(img.size(), wdth_mm);
 			caps = cap_importer.getCaps();
-			if (caps.empty()) return 1;
-
+			if (caps.empty()) {
+				std::cerr << "No Caps Loaded." << std::endl;
+				return 1;
+			}
+			std::cout << "Img size: " << img.size().width << "," << img.size().height << std::endl;
 			for (auto& p : cap_positions) {
-				Vec3i p_col = img.at<Vec3i>(p);
+				std::cout << p.x << "," << p.y << std::endl;
+				Vec3i p_col = Vec3i(img.at<Vec3b>(p));
 				circle(img, p, circ_px / 2, { 255,255,255 }, 1);
 			}
+			break;
+		case 'i':
+			cap_importer.addFolder("./BottleCap/");
 			break;
 		case 'x': // QUIT
 		case 27:

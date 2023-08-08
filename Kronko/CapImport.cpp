@@ -18,7 +18,7 @@ Cap CapImport::makeCap(fs::path path, int prio) {
     if (img.empty()) {
         throw std::runtime_error("Could not read the image: " + path.string());
     }
-    Cap cap = Cap(path.stem().string(), path.string(), this->getColVec(img), this->getDirVector(img), img, prio);
+    Cap cap = Cap(++this->ids,path.stem().string(), path.string(), this->getColVec(img), this->getDirVector(img), img, prio);
     return cap;
 }
 
