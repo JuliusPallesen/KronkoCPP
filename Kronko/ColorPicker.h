@@ -6,6 +6,6 @@ class ColorPicker
 {
 public:
 	ColorPicker();
-	virtual Vec3i getColorV(Mat &  img, Point p = Point(-1,-1), double radius = -1.0);
+	virtual Vec3i getColorV(Mat &  img, Point p = Point(-1,-1), int radius = -1.0);
 };
 

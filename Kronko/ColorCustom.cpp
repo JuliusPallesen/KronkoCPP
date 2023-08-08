@@ -5,7 +5,7 @@ ColorCustom::ColorCustom(Vec3i c): col(c)
     this->col = c;
 }
 
-Vec3i ColorCustom::getColorV(Mat& img, Point p, double radius)
+Vec3i ColorCustom::getColorV(Mat& img, Point p, int radius)
 {
     return this->col;
 }

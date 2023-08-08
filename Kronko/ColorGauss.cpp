@@ -1,6 +1,6 @@
 #include "ColorGauss.h"
 
-Vec3i ColorGauss::getColorV(Mat& img, Point p, double radius)
+Vec3i ColorGauss::getColorV(Mat& img, Point p, int radius)
 {
     Size sz = img.size();
     if (p == Point(-1, -1)) p = Point(sz.width / 2, sz.height / 2);
