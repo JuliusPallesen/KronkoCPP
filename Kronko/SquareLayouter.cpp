@@ -15,7 +15,11 @@ std::vector<cv::Point> SquareLayouter::createLayout(cv::Size imgDims, int frameW
 }
 std::vector<cv::Point> SquareLayouter::createLayoutmm(cv::Mat& img, int frameWidth)
 {
-	int newWidth = 0;
-	return std::vector<cv::Point>();
+	cv::Size img_size = img.size();
+	int new_width = (frameWidth / CAP_SIZE) * 100;
+	double scale_factor = (double)new_width / double(img_size.width);
+	img_size = cv::Size2d(new_width, (int)img_size.height * scale_factor);
+	cv::resize(img, img, img_size, cv::INTER_AREA);
+	return createLayout(img_size,frameWidth);
 }
 ;

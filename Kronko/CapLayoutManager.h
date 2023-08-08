@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <iostream>
-#include <opencv2\core\core.hpp>
+#include <opencv2/opencv.hpp>
 #include "Types.h"
 
 class CapLayoutManager
