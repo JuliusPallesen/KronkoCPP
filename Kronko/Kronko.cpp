@@ -17,6 +17,29 @@ void resizeImage(cv::Mat& image, int& windowWidth, int& windowHeight) {
 	windowHeight = desiredHeight;
 }
 
+Mat readJpgAsBGRA(std::string path) {
+	cv::Mat jpegImage = cv::imread(path);
+	cv::Mat bgraImage;
+	if (!jpegImage.empty()) {
+		// Create an alpha channel filled with fully opaque values
+		cv::Mat alphaChannel(jpegImage.size(), CV_8UC1, cv::Scalar(255));
+
+		// Split the JPEG image into its RGB channels
+		std::vector<cv::Mat> rgbChannels(3);
+		cv::split(jpegImage, rgbChannels);
+
+		// Merge the RGB channels with the alpha channel to create BGRA image
+		std::vector<cv::Mat> bgraChannels(4);
+		bgraChannels[0] = rgbChannels[0]; // Blue channel
+		bgraChannels[1] = rgbChannels[1]; // Green channel
+		bgraChannels[2] = rgbChannels[2]; // Red channel
+		bgraChannels[3] = alphaChannel;   // Alpha channel
+
+		cv::merge(bgraChannels, bgraImage);
+	}
+	return bgraImage;
+}
+
 int main(int argc, char* argv[])
 {
 	// TODO: 
@@ -40,7 +63,7 @@ int main(int argc, char* argv[])
 	CapImport cap_importer(&db,cp);
 
 	// TODO: Open File Dialogue instead
-	Mat img = imread(path, IMREAD_COLOR);
+	Mat img = readJpgAsBGRA(path);
 	Mat backup = img.clone();
 
 	std::vector<Cap> caps;
@@ -53,6 +76,7 @@ int main(int argc, char* argv[])
 		std::cout << "Could not read the image: " << path << std::endl;
 		return 1;
 	}
+
 	namedWindow("Kronko", WINDOW_NORMAL);
 	createTrackbar("Width", "Kronko", &wdth_mm, 1000);
 	setTrackbarMin("Width", "Kronko", CAP_SIZE);

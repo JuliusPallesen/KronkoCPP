@@ -4,7 +4,7 @@
 
 TEST(TestTestsImport, TestTest) {
 	cv::Mat img;
-	ColorPoint cp();
+	ColorPoint::ColorPicker colorpoint;
 	EXPECT_EQ(1, 1);
 	EXPECT_TRUE(true);
 }
