@@ -24,8 +24,7 @@ int main(int argc, char* argv[])
 	//			- Move GUI stuff to KronkoGUI  
 	const std::string DB_PATH = "./JSON/db.json";
 	const std::string LENA_PATH = "./Images/lena.jpg";
-	const std::string CAP_IMG_FOLDER = "./BottleCap/";
-
+	const std::string CAP_IMG_FOLDER = "./Bottlecaps/";
 
 	bool cancel = false;
 	int wdth_mm = CAP_SIZE;
@@ -35,7 +34,7 @@ int main(int argc, char* argv[])
 	CapLayoutManager* lom = new SquareLayouter;
 	std::vector<cv::Point> cap_positions;
 
-	ColorPicker * cp = new ColorGauss();
+	ColorPicker * cp = new ColorPoint();
 
 	JsonDB db(DB_PATH);
 	CapImport cap_importer(&db,cp);
