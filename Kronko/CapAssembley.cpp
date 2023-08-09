@@ -21,7 +21,12 @@ void overlayImage(cv::Mat& img1, cv::Mat & capimg, cv::Point position, int size)
 	cv::Mat img1_roi = img1(roi);
 
 	// Add the transformed image2 to the ROI of img1
-	cv::addWeighted(img1_roi, 0, img2, 1.0, 0.0, img1_roi);
+	try {
+		cv::addWeighted(img1_roi, 0, img2, 1.0, 0.0, img1_roi);
+	}
+	catch (...) {
+		std::cerr << "Couldnt add image at:" << position << std::endl;
+	}
 }
 
 void assembleMapping(cv::Mat & img, CapMapping map, std::vector<Cap> caps,int circ_px) {

@@ -22,22 +22,26 @@ int main(int argc, char* argv[])
 	// TODO: 
 	//			- Parse commandline args
 	//			- Move GUI stuff to KronkoGUI  
+	const std::string DB_PATH = "./JSON/db.json";
+	const std::string LENA_PATH = "./Images/lena.jpg";
+	const std::string CAP_IMG_FOLDER = "./BottleCap/";
+
 
 	bool cancel = false;
 	int wdth_mm = CAP_SIZE;
-	int circ_px;
+	int circ_px = 100;
+	std::string path = LENA_PATH;
 
 	CapLayoutManager* lom = new SquareLayouter;
 	std::vector<cv::Point> cap_positions;
 
 	ColorPicker * cp = new ColorGauss();
 
-	JsonDB db("./JSON/db.json");
+	JsonDB db(DB_PATH);
 	CapImport cap_importer(&db,cp);
 
 	// TODO: Open File Dialogue instead
-	std::string lena_path = "./Images/lena.jpg";
-	Mat img = imread(lena_path, IMREAD_COLOR);
+	Mat img = imread(path, IMREAD_COLOR);
 	Mat backup = img.clone();
 
 	std::vector<Cap> caps;
@@ -47,7 +51,7 @@ int main(int argc, char* argv[])
 	//TODO: Throw Exception instead
 	if (img.empty())
 	{
-		std::cout << "Could not read the image: " << lena_path << std::endl;
+		std::cout << "Could not read the image: " << path << std::endl;
 		return 1;
 	}
 	namedWindow("Kronko", WINDOW_NORMAL);
@@ -71,33 +75,56 @@ int main(int argc, char* argv[])
 		switch (k) {
 			//TODO: Add : Load img, Import, Show Loaded Caps, 
 		case 's': // SAVE
-			imwrite(lena_path, img);
+			imwrite(path, img);
 			break;
-		case 'b': // LOAD BACKUP
+		case 'b':
+			// LOAD BACKUP
 			img = backup.clone();
 			break;
-		case '1': // SQUARE LAYOUTER
+		case '1':
+			// SQUARE LAYOUTER
 			cap_positions = lom->createLayoutmm(img, wdth_mm);
-			circ_px = (int)(((float)img.size().width / (float)wdth_mm) * CAP_SIZE);				
-			caps = cap_importer.getCaps();
-			if (caps.empty()) {
-				std::cerr << "No Caps Loaded." << std::endl;
-				return 1;
-			}
-			map = cm.createCapMappingHist(img, cap_positions, caps);
-			assembleMapping(img,map,caps,circ_px);
+			circ_px = (int)(((float)img.size().width / (float)wdth_mm) * CAP_SIZE);
 			for (auto& p : cap_positions) {
 				circle(img, p, circ_px / 2, { 255,255,255 }, 1);
 			}
 			break;
+		case 'a':
+			// ASSEMBLE
+			if (!cap_positions.empty()) {
+				caps = cap_importer.getCaps();
+				if (caps.empty()) {
+					std::cerr << "No Caps Loaded." << std::endl;
+				}
+				map = cm.createCapMappingHist(img, cap_positions, caps);
+				circ_px = (int)(((float)img.size().width / (float)wdth_mm) * CAP_SIZE);
+				assembleMapping(img, map, caps, circ_px);
+			}
+			break;
 		case 'i':
-			cap_importer.addFolder("./BottleCap/");
+			//	IMPORT
+			cap_importer.addFolder(CAP_IMG_FOLDER);
+			break;
+		case 'c':
+			// CLEAR DB
+			fs::remove(fs::path(DB_PATH));
 			break;
 		case 'x': // QUIT
 		case 27:
 			cancel = true;
 			break;
+		default:
+			// HELP
+			std::cout << std::endl << "Help:" << std::endl;
+			std::cout << "1-3:\t\t Chose Layouter (Square, Triangle, Packing)" << std::endl;
+			std::cout << "i:\t\t Import Caps from DB" << std::endl;
+			std::cout << "c:\t\t clear DB" << std::endl;
+			std::cout << "s:\t\t Save image" << std::endl;
+			std::cout << "b:\t\t Load backup image / reset image" << std::endl;
+			std::cout << "Esc/x:\t\t Quit." << std::endl;
+			break;
 		}
+
 	}
 	return 0;
 }
