@@ -27,6 +27,5 @@ Vec3i ColorAvg::getColorV(Mat& img, Point p, int diameter)
     }
     else {
         throw std::runtime_error("Index out of bounds");
-        return cv::Vec3i(0, 0, 0);  // Return default color if ROI is near image border
     }
 }

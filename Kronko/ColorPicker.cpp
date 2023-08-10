@@ -9,3 +9,4 @@ cv::Vec3i ColorPicker::getColorV(Mat & img, Point p, int diameter)
     std::cerr << "[ColorPicker::getColorV] Should'nt be called." << std::endl;
     return cv::Vec3i(0,0,0);
 }
+

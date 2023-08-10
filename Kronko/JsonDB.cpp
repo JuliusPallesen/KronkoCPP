@@ -53,3 +53,7 @@ std::vector<Cap> JsonDB::getCaps()
 	}
 	return caps;
 }
+
+void JsonDB::clearDB() {
+	fs::remove(fs::path(this->path));
+};

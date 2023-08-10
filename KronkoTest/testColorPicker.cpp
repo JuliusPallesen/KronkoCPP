@@ -1,12 +1,4 @@
 #include "pch.h"
-#include <opencv2/opencv.hpp>
-#include "ColorPoint.h"
-#include "ColorAvg.h"
-#include "ColorGauss.h"
-#include "ColorCustom.h"
-
-#define TEST_IMG_FOLDER "./Test/"
-#define TEST_IMG_RED_PATH "C:/Users/juliu/source/repos/Kronko/KronkoTest/Test/test_red.png"
 TEST(TestColorPicker,TestConstructors) {
 	ColorPicker* cp = new ColorPoint();
 	ColorPicker* ca = new ColorAvg();
@@ -52,7 +44,6 @@ TEST(TestColorPicker,TestColorAvgRed) {
 
 TEST(TestColorPicker, TestColorGaussRed) {
 	cv::Mat img = cv::imread(TEST_IMG_RED_PATH, IMREAD_UNCHANGED);
-	std::cout << "HEREHRHERHEHREHRHEHEHEHEAAAAHHAHAHAHAHRGHHH woooweeewooooweeee" << std::endl;
 	if (img.empty()) {
 		std::cerr << "Couldn't load Image: " << TEST_IMG_RED_PATH << std::endl;
 	}

@@ -16,5 +16,6 @@ public:
 	virtual void storeCap(Cap& cap);
 	virtual void storeCaps(std::vector<Cap> caps);
 	virtual std::vector<Cap> getCaps();
+	virtual void clearDB();
 };
 

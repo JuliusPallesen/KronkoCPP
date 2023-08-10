@@ -16,3 +16,7 @@ std::vector<Cap> CapDB::getCaps()
 {
 	return std::vector<Cap>();
 }
+
+void CapDB::clearDB()
+{
+}

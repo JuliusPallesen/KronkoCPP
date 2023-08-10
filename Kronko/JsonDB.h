@@ -10,5 +10,6 @@ public:
     void storeCap(Cap & cap) override;
     void storeCaps(std::vector<Cap> caps) override;
     std::vector<Cap> getCaps() override;
+    void clearDB() override;
 };
 

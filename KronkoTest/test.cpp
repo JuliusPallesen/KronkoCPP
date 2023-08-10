@@ -1,6 +1,4 @@
 #include "pch.h"
-#include <opencv2/opencv.hpp>
-#include "ColorPoint.h"
 
 TEST(TestTestsImport, TestTest) {
 	cv::Mat img;

@@ -141,7 +141,7 @@ int main(int argc, char* argv[])
 			break;
 		case 'c':
 			// CLEAR DB
-			fs::remove(fs::path(DB_PATH));
+			db.clearDB();
 			break;
 		case 'x': // QUIT
 		case 27:
