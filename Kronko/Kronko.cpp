@@ -2,6 +2,16 @@
 
 using namespace cv;
 
+void print_help() {
+	std::cout << std::endl << "Help:" << std::endl;
+	std::cout << "1-3:\t\t Chose Layouter (Square, Triangle, Packing)" << std::endl;
+	std::cout << "i:\t\t Import Caps from DB" << std::endl;
+	std::cout << "c:\t\t clear DB" << std::endl;
+	std::cout << "s:\t\t Save image" << std::endl;
+	std::cout << "b:\t\t Load backup image / reset image" << std::endl;
+	std::cout << "Esc/x:\t\t Quit." << std::endl;
+}
+
 void resizeImage(cv::Mat& image, int& windowWidth, int& windowHeight) {
 	//TODO: Fix / responding to feedback
 	double imageAspectRatio = static_cast<double>(image.cols) / image.rows;
@@ -66,7 +76,7 @@ int main(int argc, char* argv[])
 	Mat img = readJpgAsBGRA(path);
 	Mat backup = img.clone();
 
-	std::vector<Cap> caps;
+	std::vector<Cap> caps; // look into using shared pointers for this
 	CapMapping map;
 	CapMap cm = CapMap(cp, 20);
 
@@ -118,9 +128,10 @@ int main(int argc, char* argv[])
 				caps = cap_importer.getCaps();
 				if (caps.empty()) {
 					std::cerr << "No Caps Loaded." << std::endl;
+					break;
 				}
-				map = cm.createCapMappingHist(img, cap_positions, caps);
 				circ_px = (int)(((float)img.size().width / (float)wdth_mm) * CAP_SIZE);
+				map = cm.createCapMappingHist(img, cap_positions, caps, circ_px);
 				assembleMapping(img, map, caps, circ_px);
 			}
 			break;
@@ -138,13 +149,7 @@ int main(int argc, char* argv[])
 			break;
 		default:
 			// HELP
-			std::cout << std::endl << "Help:" << std::endl;
-			std::cout << "1-3:\t\t Chose Layouter (Square, Triangle, Packing)" << std::endl;
-			std::cout << "i:\t\t Import Caps from DB" << std::endl;
-			std::cout << "c:\t\t clear DB" << std::endl;
-			std::cout << "s:\t\t Save image" << std::endl;
-			std::cout << "b:\t\t Load backup image / reset image" << std::endl;
-			std::cout << "Esc/x:\t\t Quit." << std::endl;
+			print_help();
 			break;
 		}
 

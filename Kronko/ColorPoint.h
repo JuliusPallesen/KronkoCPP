@@ -4,7 +4,7 @@ class ColorPoint :
     public ColorPicker
 {
 public:
-    using ColorPicker::ColorPicker;
-    Vec3i getColorV(Mat& img, Point p = Point(-1, -1), int radius = -1.0) override;
+    ColorPoint();
+    Vec3i getColorV(Mat& img, Point p = Point(-1, -1), int diameter = -1.0) override;
 };
 

@@ -11,8 +11,8 @@ class CapMap
 {
 public:
 	CapMap(ColorPicker * cp, int max);
-	CapMapping createCapMappingSimple(cv::Mat& img, std::vector<cv::Point>& positions, std::vector<Cap>& caps);
-	CapMapping createCapMappingHist(cv::Mat& img, std::vector<cv::Point>& positions, std::vector<Cap>& caps);
+	CapMapping createCapMappingSimple(cv::Mat& img, std::vector<cv::Point>& positions, std::vector<Cap>& caps, int circ_px);
+	CapMapping createCapMappingHist(cv::Mat& img, std::vector<cv::Point>& positions, std::vector<Cap>& caps, int circ_px);
 
 protected:
 	ColorPicker * color_picker;
@@ -20,6 +20,6 @@ protected:
 private:
 	ColorDistanceMap getAllDistances(std::vector<cv::Vec3i> cols, std::vector<Cap>& caps);
 	std::vector<std::tuple<int, double>> getColorVDistances(cv::Vec3i col, std::vector<Cap>& caps);
-	std::vector<cv::Vec3i> getColorValues(cv::Mat& img, std::vector<cv::Point> positions);
+	std::vector<cv::Vec3i> getColorValues(cv::Mat& img, std::vector<cv::Point> positions, int circ_px);
 };
 
