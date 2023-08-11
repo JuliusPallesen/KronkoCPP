@@ -1,8 +1,7 @@
 #include "JsonDB.h"
 
-void JsonDB::storeCap(Cap & cap)
+void JsonDB::storeCap(Cap& cap)
 {
-	//TODO: Maybe check if Brand already exists
 	std::ofstream jsonFile(this->path, std::ios::app);
 	if (jsonFile.is_open())
 	{
@@ -33,20 +32,20 @@ void JsonDB::storeCaps(std::vector<Cap> caps)
 
 std::vector<Cap> JsonDB::getCaps()
 {
-	//Rewrite to return JSON objects, init images parallel
 	std::vector<Cap> caps;
 	std::ifstream jsonFile(this->path);
 	if (jsonFile.is_open()) {
-		json jsonData;
 		while (!jsonFile.eof()) {
 			try {
+				json jsonData;
 				jsonFile >> jsonData;
-				std::cout << "JSON data: " << jsonData.dump() << std::endl; // Print JSON data
-				caps.push_back(Cap::Cap(jsonData));
+				if (!jsonData.empty()) {  // Check if JSON data is empty before parsing
+					std::cout << "JSON data: " << jsonData.dump() << std::endl; // Print JSON data
+					caps.push_back(Cap::Cap(jsonData));
+				}
 			}
 			catch (const json::parse_error& e) {
 				std::cerr << "JSON parse error: " << e.what() << std::endl;
-				caps.pop_back();
 			}
 		}
 		jsonFile.close();

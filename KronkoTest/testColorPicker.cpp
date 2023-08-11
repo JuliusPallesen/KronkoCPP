@@ -1,4 +1,6 @@
 #include "pch.h"
+
+
 TEST(TestColorPicker,TestConstructors) {
 	ColorPicker* cp = new ColorPoint();
 	ColorPicker* ca = new ColorAvg();

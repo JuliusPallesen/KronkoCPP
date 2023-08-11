@@ -3,12 +3,10 @@
 Cap::Cap(json data)
 {
     cv::Mat img = cv::imread(data[CAP_PATH], cv::IMREAD_UNCHANGED);
-    //cv::resize(img,img,cv::Size2d(100,100),cv::INTER_AREA);
     if (img.empty())
     {
         throw std::runtime_error("[CAP] Couldn't read image:" + data[CAP_PATH]);
     }
-    //cv::imshow("Kronko",img);
     json col = data[CAP_COLOR];
     json dir = data[CAP_DIR];
     this->id = data[CAP_ID];
