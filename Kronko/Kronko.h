@@ -7,6 +7,7 @@
 #include "Cap.h"
 #include "PackingLayouter.h"
 #include "SquareLayouter.h"
+#include "TriangleLayouter.h"
 #include "ColorPicker.h"
 #include "ColorPoint.h"
 #include "ColorAvg.h"

@@ -117,6 +117,16 @@ int main(int argc, char* argv[])
 				break;
 			case '1': // SQUARE LAYOUTER
 				std::cout << "Calculating Square Layout..." << std::endl;
+				lom = new SquareLayouter();
+				cap_positions = lom->createLayout(img.size(), wdth_mm);
+				circ_px = getCircleSizePx(img, wdth_mm);
+				for (auto& p : cap_positions) {
+					circle(img, p, circ_px / 2, { 255,255,255 }, (img.cols / 1000) +1);
+				}
+				break;
+			case '2':
+				std::cout << "Calculating Triangle Layout..." << std::endl;
+				lom = new TriangleLayouter();
 				cap_positions = lom->createLayout(img.size(), wdth_mm);
 				circ_px = getCircleSizePx(img, wdth_mm);
 				for (auto& p : cap_positions) {

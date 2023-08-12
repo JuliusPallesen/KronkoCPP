@@ -13,8 +13,8 @@ void overlayImage(cv::Mat& img1, cv::Mat& capimg, cv::Point position, int size) 
     // Ensure the ROI is within bounds
     if (roi.x < 0 || roi.y < 0 || roi.x + roi.width > img1.cols || roi.y + roi.height > img1.rows) {
         // Handle out-of-bounds error
-        throw std::runtime_error("Tried to add image out of bounds: " +std::to_string(position.x) +"," + std::to_string(position.y)+
-                                   " size: " + std::to_string(size));
+        //throw std::runtime_error("Tried to add image out of bounds: " +std::to_string(position.x) +"," + std::to_string(position.y)+
+        //                           " size: " + std::to_string(size));
         return;
     }
     else {
