@@ -13,17 +13,20 @@ void overlayImage(cv::Mat& img1, cv::Mat& capimg, cv::Point position, int size) 
     // Ensure the ROI is within bounds
     if (roi.x < 0 || roi.y < 0 || roi.x + roi.width > img1.cols || roi.y + roi.height > img1.rows) {
         // Handle out-of-bounds error
+        throw std::runtime_error("Tried to add image out of bounds: " +std::to_string(position.x) +"," + std::to_string(position.y)+
+                                   " size: " + std::to_string(size));
         return;
     }
+    else {
+        // Create a region of interest (ROI) in img1 where img2 will be placed
+        cv::Mat img1_roi = img1(roi);
 
-    // Create a region of interest (ROI) in img1 where img2 will be placed
-    cv::Mat img1_roi = img1(roi);
-
-    // Blend the images using the alpha channel
-    double alpha = 1.0;
-    double beta = 0.0;
-    double gamma = 0.0;
-    cv::addWeighted(img1_roi, alpha, img2, beta, gamma, img1_roi);
+        // Blend the images using the alpha channel
+        double alpha = 0.0;
+        double beta = 1.0;
+        double gamma = 0.0;
+        cv::addWeighted(img1_roi, alpha, img2, beta, gamma, img1_roi);
+    }
 }
 
 

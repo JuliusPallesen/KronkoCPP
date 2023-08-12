@@ -2,9 +2,9 @@
     "Amount": -1,
     "Brand": "budweiser",
     "Color": [
-        0,
-        0,
-        0
+        155,
+        127,
+        69
     ],
     "Direction": [
         0,
@@ -18,9 +18,9 @@
     "Amount": -1,
     "Brand": "Carlsberg",
     "Color": [
-        0,
-        0,
-        0
+        73,
+        156,
+        62
     ],
     "Direction": [
         0,
@@ -34,9 +34,9 @@
     "Amount": -1,
     "Brand": "Dithmarscher",
     "Color": [
-        0,
-        0,
-        0
+        126,
+        173,
+        174
     ],
     "Direction": [
         0,
@@ -50,9 +50,9 @@
     "Amount": -1,
     "Brand": "Holsten",
     "Color": [
-        0,
-        0,
-        0
+        133,
+        132,
+        134
     ],
     "Direction": [
         0,
@@ -66,9 +66,9 @@
     "Amount": -1,
     "Brand": "Kellerbier",
     "Color": [
-        0,
-        0,
-        0
+        188,
+        161,
+        96
     ],
     "Direction": [
         0,
@@ -82,9 +82,9 @@
     "Amount": -1,
     "Brand": "Kiezmische",
     "Color": [
-        0,
-        0,
-        0
+        111,
+        166,
+        173
     ],
     "Direction": [
         0,
@@ -98,9 +98,9 @@
     "Amount": -1,
     "Brand": "Nordlicht",
     "Color": [
-        0,
-        0,
-        0
+        138,
+        163,
+        169
     ],
     "Direction": [
         0,
@@ -114,9 +114,9 @@
     "Amount": -1,
     "Brand": "Ratsherren_Pink",
     "Color": [
-        0,
-        0,
-        0
+        164,
+        109,
+        166
     ],
     "Direction": [
         0,
@@ -130,9 +130,9 @@
     "Amount": -1,
     "Brand": "Veltins",
     "Color": [
-        0,
-        0,
-        0
+        152,
+        179,
+        175
     ],
     "Direction": [
         0,

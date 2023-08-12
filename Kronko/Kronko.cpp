@@ -3,13 +3,16 @@
 using namespace cv;
 
 void print_help() {
-	std::cout << std::endl << "Help:" << std::endl;
-	std::cout << "1-3:\t\t Chose Layouter (Square, Triangle, Packing)" << std::endl;
-	std::cout << "i:\t\t Import Caps from DB" << std::endl;
-	std::cout << "c:\t\t clear DB" << std::endl;
-	std::cout << "s:\t\t Save image" << std::endl;
-	std::cout << "b:\t\t Load backup image / reset image" << std::endl;
-	std::cout << "Esc/x:\t\t Quit." << std::endl;
+	std::cout << "\nHelp:\n";
+	std::cout << "1-3:\t\t Chose Layouter (Square, Triangle, Packing)\n";
+	std::cout << "g:\t\t Gaussian Colopicker";
+	std::cout << "m:\t\t Mean Colopicker";
+	std::cout << "p:\t\t Point Colopicker";
+	std::cout << "i:\t\t Import Caps from DB\n";
+	std::cout << "c:\t\t clear DB\n";
+	std::cout << "s:\t\t Save image\n";
+	std::cout << "b:\t\t Load backup image / reset image\n";
+	std::cout << "Esc/x:\t\t Quit.\n";
 }
 
 void resizeImage(cv::Mat& image, int& windowWidth, int& windowHeight) {
@@ -72,7 +75,7 @@ int main(int argc, char* argv[])
 
 	std::vector<Cap> caps;
 	CapMapping map;
-	CapMap cm = CapMap(cp, 20);
+	CapMap cm = CapMap();
 
 	if (img.empty())
 	{
@@ -105,19 +108,23 @@ int main(int argc, char* argv[])
 			int k = waitKey(0); // Wait for a keystroke in the window
 			switch (k) {
 			case 's': // SAVE
+				std::cout << "Saving image to " << path << std::endl;
 				imwrite(path, img);
 				break;
 			case 'b': // LOAD BACKUP
+				std::cout << "Loading backup" << std::endl;
 				img = backup.clone();
 				break;
 			case '1': // SQUARE LAYOUTER
-				cap_positions = lom->createLayoutmm(img, wdth_mm);
+				std::cout << "Calculating Square Layout..." << std::endl;
+				cap_positions = lom->createLayout(img.size(), wdth_mm);
 				circ_px = getCircleSizePx(img, wdth_mm);
 				for (auto& p : cap_positions) {
-					circle(img, p, circ_px / 2, { 255,255,255 }, 1);
+					circle(img, p, circ_px / 2, { 255,255,255 }, (img.cols / 1000) +1);
 				}
 				break;
 			case 'a': // ASSEMBLE
+				std::cout << "Assembeling Bottlecaps...\n";
 				if (!cap_positions.empty()) {
 					caps = cap_importer.getCaps();
 					if (caps.empty()) {
@@ -130,11 +137,24 @@ int main(int argc, char* argv[])
 				}
 				break;
 			case 'i': // IMPORT
+				std::cout <<"Importing Folder \n";
 				cap_importer.addFolder(CAP_IMG_FOLDER);
 				break;
 			case 'c': // CLEAR DB
 				std::cout << "clearing DB...\n";
 				db.clearDB();
+				break;
+			case 'g': // GAUSS PICKER
+				std::cout << "Gaussian Colorselection\n";
+				cm.setColorPicker(new ColorGauss());
+				break;
+			case 'm': // MEAN
+				std::cout << "Mean Colorselection\n";
+				cm.setColorPicker(new ColorAvg());
+				break;
+			case 'p':
+				std::cout << "Point Colorselection\n";
+				cm.setColorPicker(new ColorPoint());
 				break;
 			case 'x': // QUIT
 			case 27:

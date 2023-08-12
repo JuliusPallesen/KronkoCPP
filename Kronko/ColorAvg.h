@@ -5,5 +5,5 @@ class ColorAvg :
 {
 public:
     ColorAvg();
-    Vec3i getColorV(Mat& img, Point p = Point(-1, -1), int diameter = -1.0) override;
+    Vec3i getColorV(Mat& img, Point p = Point(-1, -1), int diameter = -1) override;
 };

@@ -14,6 +14,20 @@ TEST(TestColorPicker,TestConstructors) {
 	EXPECT_NO_THROW(cc->getColorV(img, cv::Point(1, 1),1));
 }
 
+TEST(TestColorPicker, TestDefaults) {
+	ColorPicker* cp = new ColorPoint();
+	ColorPicker* ca = new ColorAvg();
+	ColorPicker* cg = new ColorGauss();
+	ColorPicker* cc = new ColorCustom(cv::Vec3i(0, 0, 0));
+	cv::Mat img = cv::imread(TEST_IMG_RED_PATH, IMREAD_UNCHANGED);
+	if (img.empty()) std::cerr << "Couldn't load Image: " << TEST_IMG_RED_PATH << std::endl;
+	EXPECT_NO_THROW(cp->getColorV(img));
+	EXPECT_NO_THROW(ca->getColorV(img));
+	EXPECT_NO_THROW(cg->getColorV(img));
+	EXPECT_NO_THROW(cc->getColorV(img));
+}
+
+
 TEST(TestColorPicker, TestColorPointRed) {
 	cv::Mat img = cv::imread(TEST_IMG_RED_PATH, IMREAD_UNCHANGED);
 	if (img.empty()) {
