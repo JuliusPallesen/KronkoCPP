@@ -42,13 +42,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>C:\Program Files\Libs\json-develop\include;C:\Users\juliu\source\repos\Kronko\Kronko;C:\Program Files\opencv\build\include;$(IncludePath)</IncludePath>
-    <ExternalIncludePath>C:\Program Files\opencv\build\include;$(ExternalIncludePath)</ExternalIncludePath>
-    <LibraryPath>C:\Users\juliu\source\repos\Kronko\Kronko;C:\Program Files\opencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
+    <ExternalIncludePath>C:\Program Files\opencv\build\include;C:\Users\juliu\source\repos\Kronko\Kronko;$(ExternalIncludePath)</ExternalIncludePath>
+    <LibraryPath>C:\Users\juliu\source\repos\Kronko\x64\Debug;C:\Program Files\opencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Testing|x64'">
-    <IncludePath>C:\Users\juliu\source\repos\Kronko\Kronko;C:\Program Files\opencv\build\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Program Files\Libs\json-develop\include;C:\Users\juliu\source\repos\Kronko\Kronko;C:\Program Files\opencv\build\include;$(IncludePath)</IncludePath>
     <ExternalIncludePath>C:\Program Files\opencv\build\include;$(ExternalIncludePath)</ExternalIncludePath>
-    <LibraryPath>C:\Users\juliu\source\repos\Kronko\Kronko;C:\Program Files\opencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Program Files\opencv\build\x64\vc16\lib;C:\Users\juliu\source\repos\Kronko\Kronko;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -127,7 +127,8 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>opencv_world480d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_world480d.lib;Kronko.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\juliu\source\repos\Kronko\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Testing|x64'">
@@ -140,6 +141,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <AdditionalIncludeDirectories>C:\Program Files\opencv\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

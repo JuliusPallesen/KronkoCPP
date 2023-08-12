@@ -16,7 +16,6 @@ CapMapping CapMap::createCapMappingSimple(cv::Mat& img, std::vector<cv::Point> &
 }
 
 CapMapping CapMap::createCapMappingHist(cv::Mat & img, std::vector<cv::Point>& positions, std::vector<Cap>& caps, int circ_px) {
-	//TODO: fix
 	ColorDistanceMap data = getAllDistances(getColorValues(img, positions, circ_px), caps);
 	CapMapping mapping(caps.size());
 	bool* positions_used = new bool[data.size() + 1];
@@ -61,7 +60,6 @@ CapMapping CapMap::createCapMappingHist(cv::Mat & img, std::vector<cv::Point>& p
 	delete[] positions_used;
 	return mapping;
 }
-
 
 ColorDistanceMap CapMap::getAllDistances(std::vector<cv::Vec3i> cols, std::vector<Cap>& caps) {
 	ColorDistanceMap data;

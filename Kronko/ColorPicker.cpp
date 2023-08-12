@@ -1,5 +1,4 @@
 #include "ColorPicker.h"
-#include <iostream>
 
 ColorPicker::ColorPicker(){}
 

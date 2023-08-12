@@ -1,6 +1,8 @@
 #include "CapImport.h"
 
-CapImport::CapImport(CapDB* db, ColorPicker * cp) : db(db), color_picker(cp) {}
+CapImport::CapImport(CapDB* db, ColorPicker * cp) : db(db), color_picker(cp) {
+    this->ids = 0;
+}
 
 void CapImport::addCap(Cap & cap) {
     this->caps.push_back(cap);
@@ -22,9 +24,9 @@ Cap CapImport::makeCap(fs::path path, int prio, int max_amount) {
     {
         color = this->getColVec(img);
     }
-    catch (const std::runtime_error& e)
+    catch (const std::runtime_error& ex)
     {
-        std::cerr << e.what() << " thrown for:" << path << "\n";
+        std::cerr << ex.what() << " thrown for:" << path << "\n";
     }
 
     Cap cap = Cap(++this->ids,path.stem().string(), path.string(), color, this->getDirVector(img), img, prio);

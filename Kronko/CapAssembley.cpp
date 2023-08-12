@@ -30,12 +30,15 @@ void overlayImage(cv::Mat& img1, cv::Mat& capimg, cv::Point position, int size) 
 void assembleMapping(cv::Mat & img, CapMapping map, std::vector<Cap> caps,int circ_px) {
 	for (int i = 0; i < map.size(); i++)
 	{
+        std::cout << caps[i].brand << std::endl;
 		if (!map[i].empty())
 		{
 			for (int j = 0; j < map[i].size(); j++)
 			{
+                std::cout << map[i][j] << ",";
 				overlayImage(img, caps[i].img, map[i][j], circ_px);
 			}
 		}
+        std::cout << std::endl;
 	}
 }

@@ -14,16 +14,6 @@ protected:
 
 	static void TearDownTestCase() {
 		// Clean up common resources here
-		delete img;
-		delete lay;
-		delete cp;
-		delete db;
-		delete ci;
-		img = nullptr;
-		lay = nullptr;
-		cp = nullptr;
-		db = nullptr;
-		ci = nullptr;
 	}
 public:
 	static cv::Mat* img; // Static variable to hold the shared resource
