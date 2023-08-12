@@ -2,9 +2,9 @@
     "Amount": -1,
     "Brand": "budweiser",
     "Color": [
-        255,
-        124,
-        215
+        0,
+        0,
+        0
     ],
     "Direction": [
         0,
@@ -18,9 +18,9 @@
     "Amount": -1,
     "Brand": "Carlsberg",
     "Color": [
-        255,
-        254,
-        254
+        0,
+        0,
+        0
     ],
     "Direction": [
         0,
@@ -34,9 +34,9 @@
     "Amount": -1,
     "Brand": "Dithmarscher",
     "Color": [
-        255,
-        113,
-        125
+        0,
+        0,
+        0
     ],
     "Direction": [
         0,
@@ -50,9 +50,9 @@
     "Amount": -1,
     "Brand": "Holsten",
     "Color": [
-        255,
-        190,
-        191
+        0,
+        0,
+        0
     ],
     "Direction": [
         0,
@@ -66,9 +66,9 @@
     "Amount": -1,
     "Brand": "Kellerbier",
     "Color": [
-        154,
-        181,
-        255
+        0,
+        0,
+        0
     ],
     "Direction": [
         0,
@@ -82,9 +82,9 @@
     "Amount": -1,
     "Brand": "Kiezmische",
     "Color": [
-        154,
-        255,
-        38
+        0,
+        0,
+        0
     ],
     "Direction": [
         0,
@@ -98,9 +98,9 @@
     "Amount": -1,
     "Brand": "Nordlicht",
     "Color": [
-        255,
-        187,
-        190
+        0,
+        0,
+        0
     ],
     "Direction": [
         0,
@@ -114,9 +114,9 @@
     "Amount": -1,
     "Brand": "Ratsherren_Pink",
     "Color": [
-        186,
-        255,
-        210
+        0,
+        0,
+        0
     ],
     "Direction": [
         0,
@@ -130,9 +130,441 @@
     "Amount": -1,
     "Brand": "Veltins",
     "Color": [
-        255,
-        175,
-        179
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 9,
+    "Path": "./Bottlecaps/Veltins.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "budweiser",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 1,
+    "Path": "./Bottlecaps/budweiser.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Carlsberg",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 2,
+    "Path": "./Bottlecaps/Carlsberg.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Dithmarscher",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 3,
+    "Path": "./Bottlecaps/Dithmarscher.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Holsten",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 4,
+    "Path": "./Bottlecaps/Holsten.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Kellerbier",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 5,
+    "Path": "./Bottlecaps/Kellerbier.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Kiezmische",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 6,
+    "Path": "./Bottlecaps/Kiezmische.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Nordlicht",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 7,
+    "Path": "./Bottlecaps/Nordlicht.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Ratsherren_Pink",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 8,
+    "Path": "./Bottlecaps/Ratsherren_Pink.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Veltins",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 9,
+    "Path": "./Bottlecaps/Veltins.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "budweiser",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 1,
+    "Path": "./Bottlecaps/budweiser.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Carlsberg",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 2,
+    "Path": "./Bottlecaps/Carlsberg.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Dithmarscher",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 3,
+    "Path": "./Bottlecaps/Dithmarscher.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Holsten",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 4,
+    "Path": "./Bottlecaps/Holsten.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Kellerbier",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 5,
+    "Path": "./Bottlecaps/Kellerbier.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Kiezmische",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 6,
+    "Path": "./Bottlecaps/Kiezmische.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Nordlicht",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 7,
+    "Path": "./Bottlecaps/Nordlicht.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Ratsherren_Pink",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 8,
+    "Path": "./Bottlecaps/Ratsherren_Pink.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Veltins",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 9,
+    "Path": "./Bottlecaps/Veltins.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "budweiser",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 1,
+    "Path": "./Bottlecaps/budweiser.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Carlsberg",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 2,
+    "Path": "./Bottlecaps/Carlsberg.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Dithmarscher",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 3,
+    "Path": "./Bottlecaps/Dithmarscher.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Holsten",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 4,
+    "Path": "./Bottlecaps/Holsten.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Kellerbier",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 5,
+    "Path": "./Bottlecaps/Kellerbier.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Kiezmische",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 6,
+    "Path": "./Bottlecaps/Kiezmische.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Nordlicht",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 7,
+    "Path": "./Bottlecaps/Nordlicht.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Ratsherren_Pink",
+    "Color": [
+        0,
+        0,
+        0
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 8,
+    "Path": "./Bottlecaps/Ratsherren_Pink.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Veltins",
+    "Color": [
+        0,
+        0,
+        0
     ],
     "Direction": [
         0,

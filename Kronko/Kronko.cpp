@@ -67,7 +67,7 @@ int main(int argc, char* argv[])
 	CapLayoutManager* lom = new SquareLayouter;
 	std::vector<cv::Point> cap_positions;
 
-	ColorPicker * cp = new ColorPoint();
+	ColorPicker * cp = new ColorAvg();
 
 	JsonDB db(DB_PATH);
 	CapImport cap_importer(&db,cp);

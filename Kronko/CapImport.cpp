@@ -12,12 +12,22 @@ void CapImport::addCap(fs::path path) {
 	this->addCap(c);
 }
 
-Cap CapImport::makeCap(fs::path path, int prio) {
+Cap CapImport::makeCap(fs::path path, int prio, int max_amount) {
     Mat img = imread(path.string(), IMREAD_UNCHANGED);
+    Vec3i color = Vec3i(0,0,0);
     if (img.empty()) {
         throw std::runtime_error("Could not read the image: " + path.string());
     }
-    Cap cap = Cap(++this->ids,path.stem().string(), path.string(), this->getColVec(img), this->getDirVector(img), img, prio);
+    try
+    {
+        color = this->getColVec(img);
+    }
+    catch (const std::runtime_error& e)
+    {
+        std::cerr << e.what() << " thrown for:" << path << "\n";
+    }
+
+    Cap cap = Cap(++this->ids,path.stem().string(), path.string(), color, this->getDirVector(img), img, prio);
     return cap;
 }
 

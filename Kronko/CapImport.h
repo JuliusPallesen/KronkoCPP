@@ -31,6 +31,6 @@ protected:
 
 	cv::Vec3b getColVec(cv::Mat & img, cv::Vec3b * c = nullptr);
 	cv::Vec2b getDirVector(cv::Mat & img);
-	Cap makeCap(fs::path path, int prio = 0);
+	Cap makeCap(fs::path path, int prio = 0, int max_amount = 10000);
 };
 

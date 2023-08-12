@@ -1,6 +1,5 @@
 #include "CapMap.h"
 
-
 CapMap::CapMap(ColorPicker * cp, int max): color_picker(cp), max_amount(max)
 {
 	this->max_amount = max;
@@ -23,8 +22,8 @@ CapMapping CapMap::createCapMappingHist(cv::Mat & img, std::vector<cv::Point>& p
 	bool* positions_used = new bool[data.size() + 1];
 	std::fill_n(positions_used, data.size() + 1, false);
 	int positions_used_num = 0;
-	int next_best_i = 0;
-	int next_best_j = 0;
+	int next_best_i = -1;
+	int next_best_j = -1;
 	int j = 0;
 	double smallest_unused_distance = 9999.99;
 	while (positions_used_num <= positions.size()) {
@@ -32,7 +31,9 @@ CapMapping CapMap::createCapMappingHist(cv::Mat & img, std::vector<cv::Point>& p
 		{
 			if (!positions_used[i])
 			{
-				while (mapping[std::get<0>(data[i][j])].size() > this->max_amount) ++j; // Caps
+				//Iterate through the sorted Caps untill we find a cap that doesnt exceed its set max_amount or the max_amount heuristic
+				//mapping[std::get<0>(data[i][j])].size() is the amount the cap has already been used.
+				while (mapping[std::get<0>(data[i][j])].size() > min(this->max_amount, caps[std::get<0>(data[i][j])].max_amount)) ++j;
 				double dist = std::get<1>(data[i][j]);
 				if (smallest_unused_distance > dist)
 				{
@@ -41,11 +42,20 @@ CapMapping CapMap::createCapMappingHist(cv::Mat & img, std::vector<cv::Point>& p
 					smallest_unused_distance = dist;
 				}
 			}
+			j = 0;
+		}
+		if (next_best_i == -1 || next_best_j == -1) {
+			return mapping;
+			//throw std::runtime_error("Not enough caps!");
+		}
+		else {
+			std::cout << "Distance: " << std::get<1>(data[next_best_i][next_best_j]) << " Cap: " << caps[std::get<0>(data[next_best_i][next_best_j])].brand<< "\n";
 			mapping[std::get<0>(data[next_best_i][next_best_j])].push_back(positions[next_best_i]);
 			positions_used[next_best_i] = true;
 			positions_used_num++;
+			next_best_i = -1;
+			next_best_j = -1;
 			smallest_unused_distance = 9999.99;
-			j = 0;
 		}
 	}
 	delete[] positions_used;
