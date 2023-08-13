@@ -64,7 +64,7 @@ int main(int argc, char* argv[])
 {
 	const std::string DB_PATH = "./JSON/db.json";
 	const std::string LENA_PATH = "./Images/lena.jpg";
-	const std::string POPART_PATH = "./Images/lena.jpg";
+	const std::string POPART_PATH = "./Images/popart.jpg";
 	const std::string CAP_IMG_FOLDER = "./Bottlecaps/";
 	const int MAX_WIDTH = 5000; // Max frame width in mm (used to init slider)
 

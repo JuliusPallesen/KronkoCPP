@@ -13,7 +13,8 @@ Vec3i ColorPoint::getColorV(Mat &img, Point p, int diameter)
 		p.y <= sz.height &&
 		p.y >= 0) 
 	{
-		return Vec3i(img.at<Vec3b>(p));
+		cv::Vec4b col = img.at<Vec4b>(p);
+		return Vec3i(static_cast<int>(col[0]), static_cast<int>(col[1]), static_cast<int>(col[2]));
 	}
 	else {
 		throw std::runtime_error("Index out of bounds:" + std::to_string(p.x) + "," + std::to_string(p.x) +

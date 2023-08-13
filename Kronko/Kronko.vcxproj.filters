@@ -87,14 +87,14 @@
     <ClCompile Include="ImagePreprocess.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CapMap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CapAssembley.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ColorCustom.cpp">
       <Filter>Source Files\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="CapMap.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

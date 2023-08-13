@@ -39,7 +39,8 @@ TEST(TestColorPicker, TestColorPointRed) {
 		ColorPicker* cp = new ColorPoint();
 		cv::Size sz = img.size();
 		cv::Point center = cv::Point(sz.width / 2, sz.height / 2);
-		Vec3i col_red = Vec3i(img.at<Vec3b>(center));
+		Vec4b color = img.at<Vec4b>(center);
+		Vec3i col_red = Vec3i(color[0], color[1], color[2]);
 		Vec3i return_value = cp->getColorV(img, center,1);
 		EXPECT_EQ(col_red, return_value);
 	}
@@ -54,7 +55,8 @@ TEST(TestColorPicker,TestColorAvgRed) {
 		ColorPicker* cp = new ColorAvg();
 		cv::Size sz = img.size();
 		cv::Point center = cv::Point(sz.width / 2, sz.height / 2);
-		Vec3i col_red = Vec3i(img.at<Vec3b>(center));
+		Vec4b color = img.at<Vec4b>(center);
+		Vec3i col_red = Vec3i(color[0], color[1], color[2]);
 		Vec3i return_value = cp->getColorV(img, center,1);
 		EXPECT_EQ(col_red, return_value);
 	}
@@ -69,9 +71,33 @@ TEST(TestColorPicker, TestColorGaussRed) {
 		ColorPicker* cp = new ColorGauss();
 		cv::Size sz = img.size();
 		cv::Point center = cv::Point(sz.width / 2, sz.height / 2);
-		Vec3i col_red = Vec3i(img.at<Vec3b>(center));
+		Vec4b color = img.at<Vec4b>(center);
+		Vec3i col_red = Vec3i(color[0], color[1], color[2]);
 		Vec3i col_blk = Vec3i(0, 0, 0);
 		Vec3i return_value = cp->getColorV(img, center, 5);
 		EXPECT_EQ(col_red, return_value);
+	}
+}
+
+TEST(TestColorPicker, TestColorCorrect) {
+	ColorPicker* cp = new ColorPoint();
+	ColorPicker* ca = new ColorAvg();
+	ColorPicker* cg = new ColorGauss();
+	ColorPicker* cc = new ColorCustom(cv::Vec3i(0, 0, 0));
+	ColorPicker* cps[3] = { cp,ca,cg };
+	for (auto& p : { TEST_IMG_RED_PATH,TEST_IMG_BLACK_PATH,TEST_IMG_BLUE_PATH,TEST_IMG_GREEN_PATH,TEST_IMG_YELLOW_PATH,TEST_IMG_MAGENTA_PATH }) {
+		cv::Mat img = cv::imread(p, IMREAD_UNCHANGED);
+		if (img.empty()) std::cerr << "Couldn't load Image: " << p << std::endl;
+		cv::Vec4b color = img.at<Vec4b>(img.cols / 2, img.rows /2);
+		std::cout << p << " --> " << color << std::endl;
+		for (auto&c:cps)
+		{
+			std::cout << typeid(*c).name() << std::endl;
+			cv::Vec3i res_color = c->getColorV(img);
+			//EXPECT_EQ(color,res_color);
+			EXPECT_NEAR(color[0], res_color[0],1);
+			EXPECT_NEAR(color[1], res_color[1], 1);
+			EXPECT_NEAR(color[2], res_color[2], 1);
+		}
 	}
 }

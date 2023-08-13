@@ -20,9 +20,9 @@ Vec3i ColorAvg::getColorV(Mat& img, Point p, int diameter)
         bitwise_and(mask, alphaChannel, mask);
         Scalar meanColor = mean(img,mask);
         return cv::Vec3i(
-            static_cast<int>(meanColor[2]), 
+            static_cast<int>(meanColor[0]), 
             static_cast<int>(meanColor[1]), 
-            static_cast<int>(meanColor[0])
+            static_cast<int>(meanColor[2])
         );
     }
     else {

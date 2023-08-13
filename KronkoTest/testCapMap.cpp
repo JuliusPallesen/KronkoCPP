@@ -2,7 +2,8 @@
 #include <vector>
 
 TEST(TestCapMap, TestNoFatalFail) {
-	cv::Mat img = Mat::zeros(Size(100, 100), CV_8UC1);
+	cv::Mat img = cv::imread(TEST_IMG_RED_PATH, IMREAD_UNCHANGED);
+	if (img.empty()) std::cerr << "Couldn't load Image: " << TEST_IMG_RED_PATH << std::endl;
 	CapLayoutManager * lay = new SquareLayouter();
 	ColorPicker * cp = new ColorPoint();
 	CapDB * db = new JsonDB("./db.json");
@@ -20,10 +21,12 @@ TEST(TestCapMap, TestNoFatalFail) {
 }
 
 TEST(TestCapMap, TestMappingHist) {
-	cv::Mat img = Mat::zeros(Size(1000, 1000), CV_8UC1);
+	cv::Mat img = cv::imread(TEST_IMG_RED_PATH, IMREAD_UNCHANGED);
+	if (img.empty()) std::cerr << "Couldn't load Image: " << TEST_IMG_RED_PATH << std::endl;
 	CapLayoutManager* lay = new SquareLayouter;
 	ColorPicker* cp = new ColorPoint();
 	CapDB* db = new JsonDB("./db.json");
+	db->clearDB();
 	CapImport ci = CapImport(db, cp);
 	ci.addFolder(TEST_IMG_FOLDER);
 	std::vector<Cap> caps = ci.getCaps();
@@ -31,7 +34,7 @@ TEST(TestCapMap, TestMappingHist) {
 	int max_amount = 10;
 	CapMap cm = CapMap(cp, max_amount, CAP_MAP_HIST);
 	int positions_num = 0;
-	CapMapping map = cm.createCapMapping(img,points, caps, 10);
+	CapMapping map = cm.createCapMapping(img,points, caps, 1);
 	for (int i = 0; i < map.size(); i++)
 	{
 		if (!map[i].empty()) {
