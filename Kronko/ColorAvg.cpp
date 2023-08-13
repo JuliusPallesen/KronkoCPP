@@ -9,7 +9,7 @@ Vec3i ColorAvg::getColorV(Mat& img, Point p, int diameter)
     using namespace cv;
     Size sz = img.size();
     if (p == Point(-1, -1)) p = Point(sz.width / 2, sz.height / 2);
-    if (diameter == -1) diameter = std::min(sz.width-1, sz.height-1) - 1;
+    if (diameter == -1) diameter = std::min(sz.width-1, sz.height-1) -1;
     if (ColorPicker::isInBounds(img.size(), p, diameter)) 
     {
         //Combine Circle Mask with images Alphachannel

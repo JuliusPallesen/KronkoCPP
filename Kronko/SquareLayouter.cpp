@@ -1,5 +1,9 @@
 #include "SquareLayouter.h"
 
+SquareLayouter::SquareLayouter()
+{
+}
+
 std::vector<cv::Point> SquareLayouter::createLayout(cv::Size imgDims, int frameWidth) {
 	int circ_px = (int)(((float)imgDims.width / (float)frameWidth) * CAP_SIZE);
 	std::vector<cv::Point> positions;
@@ -26,4 +30,3 @@ std::vector<cv::Point> SquareLayouter::createLayoutmm(cv::Mat& img, int frameWid
 	cv::resize(img, img, img_size, cv::INTER_AREA);
 	return createLayout(img_size,frameWidth);
 }
-;

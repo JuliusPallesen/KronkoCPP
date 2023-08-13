@@ -8,11 +8,20 @@ void print_help() {
 	std::cout << "g:\t\t Gaussian Colopicker";
 	std::cout << "m:\t\t Mean Colopicker";
 	std::cout << "p:\t\t Point Colopicker";
+	std::cout << "s:\t\t Simple/Normal mapping";
+	std::cout << "h:\t\t Hist/Better mapping";
 	std::cout << "i:\t\t Import Caps from DB\n";
 	std::cout << "c:\t\t clear DB\n";
 	std::cout << "s:\t\t Save image\n";
 	std::cout << "b:\t\t Load backup image / reset image\n";
 	std::cout << "Esc/x:\t\t Quit.\n";
+}
+
+void conditionalResize(Mat & img, int wdth_res) {
+	if (wdth_res != img.cols) {
+		int height = static_cast<int>((static_cast<double>(wdth_res) / static_cast<double>(img.cols)) * static_cast<double>(img.rows));
+		cv::resize(img,img,Size(wdth_res, height));
+	}
 }
 
 void resizeImage(cv::Mat& image, int& windowWidth, int& windowHeight) {
@@ -54,11 +63,13 @@ int getCircleSizePx(cv::Mat img, int width_mm) {
 int main(int argc, char* argv[])
 {
 	const std::string DB_PATH = "./JSON/db.json";
-	const std::string LENA_PATH = "./Images/lena.jpg";
+	const std::string LENA_PATH = "./Images/popart.jpeg";
 	const std::string CAP_IMG_FOLDER = "./Bottlecaps/";
+	const int MAX_WIDTH = 5000; // Max frame width in mm (used to init slider)
 
 	bool cancel = false;
-	int wdth_mm = CAP_SIZE;
+	int wdth_mm = CAP_SIZE +1;
+	int wdth_res = 0;
 	int circ_px = 100;
 	std::string path = LENA_PATH;
 
@@ -68,24 +79,27 @@ int main(int argc, char* argv[])
 	ColorPicker * cp = new ColorAvg();
 
 	JsonDB db(DB_PATH);
-	CapImport cap_importer(&db,cp);
+	CapImport ci(&db,cp);
 
 	Mat img = readJpgAsBGRA(path);
 	Mat backup = img.clone();
 
 	std::vector<Cap> caps;
 	CapMapping map;
-	CapMap cm = CapMap();
+	CapMap cm = CapMap(cp);
 
 	if (img.empty())
 	{
 		std::cerr << "Could not read the image: " << path << std::endl;
 		return 1;
 	}
+	wdth_res = img.size().width;
 
 	namedWindow("Kronko", WINDOW_NORMAL);
-	createTrackbar("Width", "Kronko", &wdth_mm, 1000);
-	setTrackbarMin("Width", "Kronko", CAP_SIZE);
+	createTrackbar("Width", "Kronko", &wdth_mm, MAX_WIDTH);
+	setTrackbarMin("Width", "Kronko", CAP_SIZE +1);
+	createTrackbar("Resolution", "Kronko", &wdth_res, MAX_WIDTH);
+	setTrackbarMin("Resolution", "Kronko", wdth_res);
 	Rect windowRect = getWindowImageRect("Kronko");
 	Rect windowRectPrev = windowRect;
 
@@ -118,6 +132,7 @@ int main(int argc, char* argv[])
 			case '1': // SQUARE LAYOUTER
 				std::cout << "Calculating Square Layout..." << std::endl;
 				lom = new SquareLayouter();
+				conditionalResize(img, wdth_res);
 				cap_positions = lom->createLayout(img.size(), wdth_mm);
 				circ_px = getCircleSizePx(img, wdth_mm);
 				for (auto& p : cap_positions) {
@@ -127,6 +142,7 @@ int main(int argc, char* argv[])
 			case '2':
 				std::cout << "Calculating Triangle Layout..." << std::endl;
 				lom = new TriangleLayouter();
+				conditionalResize(img, wdth_res);
 				cap_positions = lom->createLayout(img.size(), wdth_mm);
 				circ_px = getCircleSizePx(img, wdth_mm);
 				for (auto& p : cap_positions) {
@@ -135,36 +151,58 @@ int main(int argc, char* argv[])
 				break;
 			case 'a': // ASSEMBLE
 				std::cout << "Assembeling Bottlecaps...\n";
-				if (!cap_positions.empty()) {
-					caps = cap_importer.getCaps();
+				if (!cap_positions.empty() && wdth_res == img.cols) {
+					caps = ci.getCaps();
 					if (caps.empty()) {
 						std::cerr << "No Caps Loaded." << std::endl;
 						break;
 					}
 					circ_px = getCircleSizePx(img, wdth_mm);
-					map = cm.createCapMappingHist(img, cap_positions, caps, circ_px);
+					map = cm.createCapMapping(img, cap_positions, caps, circ_px);
+					std::cout << "Caps needed:\n";
+					for (int i = 0; i < map.size(); i++)
+					{
+						std::cout << caps[i].brand << ": " << map[i].size() << std::endl;
+					}
 					assembleMapping(img, map, caps, circ_px);
+				}
+				else {
+					std::cout << "Create layout before assembeling image. (1: Square Layout 2: Triangular Layout)\n";
 				}
 				break;
 			case 'i': // IMPORT
-				std::cout <<"Importing Folder \n";
-				cap_importer.addFolder(CAP_IMG_FOLDER);
+				std::cout <<"Importing Folder\n";
+				ci.addFolder(CAP_IMG_FOLDER);
 				break;
 			case 'c': // CLEAR DB
-				std::cout << "clearing DB...\n";
+				std::cout << "Clearing DB\n";
 				db.clearDB();
 				break;
 			case 'g': // GAUSS PICKER
 				std::cout << "Gaussian Colorselection\n";
-				cm.setColorPicker(new ColorGauss());
+				cp = new ColorGauss();
+				cm.setColorPicker(cp);
+				ci.setColorPicker(cp);
 				break;
 			case 'm': // MEAN
 				std::cout << "Mean Colorselection\n";
-				cm.setColorPicker(new ColorAvg());
+				cp = new ColorAvg();
+				cm.setColorPicker(cp);
+				ci.setColorPicker(cp);
 				break;
 			case 'p':
 				std::cout << "Point Colorselection\n";
-				cm.setColorPicker(new ColorPoint());
+				cp = new ColorPoint();
+				cm.setColorPicker(cp);
+				ci.setColorPicker(cp);
+				break;
+			case 'n': //HIST MAPPING
+				std::cout << "Simple/normal mapping\n";
+				cm.setMapMode(CAP_MAP_SIMPLE);
+				break;
+			case 'h': //SIMPLE MAPPING
+				std::cout << "Best/hist mapping\n";
+				cm.setMapMode(CAP_MAP_HIST);
 				break;
 			case 'x': // QUIT
 			case 27:

@@ -12,7 +12,6 @@ void overlayImage(cv::Mat& img1, cv::Mat& capimg, cv::Point position, int size) 
 
     // Ensure the ROI is within bounds
     if (roi.x < 0 || roi.y < 0 || roi.x + roi.width > img1.cols || roi.y + roi.height > img1.rows) {
-        // Handle out-of-bounds error
         //throw std::runtime_error("Tried to add image out of bounds: " +std::to_string(position.x) +"," + std::to_string(position.y)+
         //                           " size: " + std::to_string(size));
         return;
@@ -33,15 +32,12 @@ void overlayImage(cv::Mat& img1, cv::Mat& capimg, cv::Point position, int size) 
 void assembleMapping(cv::Mat & img, CapMapping map, std::vector<Cap> caps,int circ_px) {
 	for (int i = 0; i < map.size(); i++)
 	{
-        std::cout << caps[i].brand << std::endl;
 		if (!map[i].empty())
 		{
 			for (int j = 0; j < map[i].size(); j++)
 			{
-                std::cout << map[i][j] << ",";
 				overlayImage(img, caps[i].img, map[i][j], circ_px);
 			}
 		}
-        std::cout << std::endl;
 	}
 }

@@ -4,8 +4,7 @@ ColorPicker::ColorPicker(){}
 
 cv::Vec3i ColorPicker::getColorV(Mat & img, Point p, int diameter)
 {
-    throw std::runtime_error("Called Virtual Function");
-    std::cerr << "Virtual function should'nt be called.\n";
+    throw std::runtime_error("[ColorPicker::getColorV] Called Virtual Function");
     return cv::Vec3i(0,0,0);
 }
 

@@ -9,7 +9,7 @@ Vec3i ColorGauss::getColorV(Mat& img, Point p, int diameter)
     Vec3i color = Vec3i(0,0,0);
     Size sz = img.size();
     if (p == Point(-1, -1)) p = Point(sz.width / 2, sz.height / 2);
-    if (diameter == -1) diameter = (std::min(sz.width, sz.height)) -1;
+    if (diameter == -1) diameter = (std::min(sz.width, sz.height));
     if (ColorPicker::isInBounds(sz, p, diameter)) {
         int kernelSize = static_cast<int>(2 * diameter) + 1;  // Ensure kernel size is odd
         cv::Mat1d gaussKernel = cv::getGaussianKernel(kernelSize, 1.0, CV_64F);

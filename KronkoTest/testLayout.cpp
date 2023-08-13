@@ -1,5 +1,20 @@
 #include "pch.h"
 
+bool allInBounds(std::vector<cv::Point> points, cv::Size sz, int radius) {
+	for (auto & p: points)
+	{
+		if (p.x + radius >= sz.width	||
+			p.x - radius < 0			||
+			p.y + radius >= sz.height	||
+			p.y - radius < 0 )
+		{
+			std::cout << "Out of bounds at: " << p << " with r: " << radius << " and img.size: " << sz << std::endl;
+			return false;
+		}
+	}
+	return true;
+};
+
 TEST(TestLayout, TestNoFatalFail) {
 	cv::Mat img = Mat::zeros(Size(100, 100), CV_8UC1);;
 	CapLayoutManager * lay;
@@ -44,4 +59,20 @@ TEST(TestLayout, TestOOB) {
 	CapLayoutManager* lay = new SquareLayouter();
 	std::vector<cv::Point> points;
 	EXPECT_THROW(points = lay->createLayout(img.size(), 1000), std::runtime_error);
+}
+
+TEST(TestLayout, TestAllInBounds) {
+	cv::Mat img = Mat::zeros(Size(1, 1), CV_8UC1);
+	CapLayoutManager * layouter[2] = {new SquareLayouter() , new TriangleLayouter()};
+	std::vector<cv::Point> points;
+	for (auto& size : { 10,100,260,1337 }) {
+		img = Mat::zeros(Size(size, size), CV_8UC1);
+		for (auto & lay: layouter)
+		{
+			std::cout << typeid(*lay).name() << " size: "<< size << std::endl;
+			EXPECT_TRUE(allInBounds(lay->createLayout(img.size(),26),img.size(),13));
+		}
+	}
+
+
 }

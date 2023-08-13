@@ -53,6 +53,11 @@ void CapImport::addFolder(const std::string path) {
     this->caps.insert(this->caps.end(), caps.begin(), caps.end());
 }
 
+void CapImport::setColorPicker(ColorPicker* cp)
+{
+    this->color_picker = cp;
+}
+
 std::vector<Cap> CapImport::getCaps()
 { 
     if (this->caps.empty())
@@ -64,8 +69,11 @@ std::vector<Cap> CapImport::getCaps()
 
 cv::Vec3b CapImport::getColVec(cv::Mat& img, cv::Vec3b * c)
 {
-    if (c == nullptr) return color_picker->getColorV(img);
-    return *c;  
+    if (c == nullptr) {
+        std::cout << "getting color \n";
+        return this->color_picker->getColorV(img);
+    }
+    return *c;
 }
 
 cv::Vec2b CapImport::getDirVector(cv::Mat& img) {
