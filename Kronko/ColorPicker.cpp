@@ -10,9 +10,9 @@ cv::Vec3i ColorPicker::getColorV(Mat & img, Point p, int diameter)
 
 bool ColorPicker::isInBounds(Size sz, Point p, int diameter)
 {
-    int radius = (diameter / 2) + (diameter % 2);
+    int radius = (diameter / 2);
     return ((p.x + radius < sz.width)   && 
-            (p.x - radius >= 0)          &&
+            (p.x - radius >= 0)         &&
             (p.y + radius < sz.height)  && 
             (p.y - radius >= 0));
 }

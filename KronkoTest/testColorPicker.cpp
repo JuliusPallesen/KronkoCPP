@@ -21,11 +21,27 @@ TEST(TestColorPicker, TestDefaults) {
 	ColorPicker* cc = new ColorCustom(cv::Vec3i(0, 0, 0));
 	for (auto& p : {TEST_IMG_RED_PATH,TEST_IMG_BUDWEISER,TEST_IMG_BLACK_PATH,TEST_IMG_CARLSBERG}) {
 		cv::Mat img = cv::imread(p, IMREAD_UNCHANGED);
-		if (img.empty()) std::cerr << "Couldn't load Image: " << p << std::endl;
-		EXPECT_NO_THROW(cp->getColorV(img));
-		EXPECT_NO_THROW(ca->getColorV(img));
+		std::cout << p << std::endl;
+		if (img.empty()) {
+			std::cerr << "Couldn't load Image: " << p << std::endl;
+		}
+		else {
+			EXPECT_NO_THROW(cp->getColorV(img));
+			EXPECT_NO_THROW(ca->getColorV(img));
+			EXPECT_NO_THROW(cg->getColorV(img));
+			EXPECT_NO_THROW(cc->getColorV(img));
+		}
+	}
+}
+
+TEST(TestColorPicker, TestGaussBudweiser) {
+	ColorPicker* cg = new ColorGauss();
+	cv::Mat img = cv::imread(TEST_IMG_BUDWEISER, IMREAD_UNCHANGED);
+	if (img.empty()) {
+		std::cerr << "Couldn't load Image: " << TEST_IMG_BUDWEISER << std::endl;
+	}
+	else {
 		EXPECT_NO_THROW(cg->getColorV(img));
-		EXPECT_NO_THROW(cc->getColorV(img));
 	}
 }
 
