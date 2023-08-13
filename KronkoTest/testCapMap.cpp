@@ -7,7 +7,7 @@ TEST(TestCapMap, TestNoFatalFail) {
 	ColorPicker * cp = new ColorPoint();
 	CapDB * db = new JsonDB("./db.json");
 	CapImport * ci = new CapImport(db, cp);
-	std::vector<cv::Point> points = lay->createLayout(img.size(), 10);
+	std::vector<cv::Point> points = lay->createLayout(img.size(), 100);
 	ci->addFolder(TEST_IMG_FOLDER);
 	std::vector<Cap> caps = ci->getCaps();
 	CapMap cm = CapMap(cp,10);
@@ -21,13 +21,13 @@ TEST(TestCapMap, TestNoFatalFail) {
 
 TEST(TestCapMap, TestMappingHist) {
 	cv::Mat img = Mat::zeros(Size(1000, 1000), CV_8UC1);
-	CapLayoutManager lay = SquareLayouter();
+	CapLayoutManager* lay = new SquareLayouter;
 	ColorPicker* cp = new ColorPoint();
-	CapDB* db = new JsonDB::CapDB("./db.json");
+	CapDB* db = new JsonDB("./db.json");
 	CapImport ci = CapImport(db, cp);
 	ci.addFolder(TEST_IMG_FOLDER);
 	std::vector<Cap> caps = ci.getCaps();
-	std::vector<Point> points = lay.createLayout(img.size(), 10);
+	std::vector<Point> points = lay->createLayout(img.size(), 1000);
 	int max_amount = 10;
 	CapMap cm = CapMap(cp, max_amount, CAP_MAP_HIST);
 	int positions_num = 0;

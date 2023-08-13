@@ -63,7 +63,8 @@ int getCircleSizePx(cv::Mat img, int width_mm) {
 int main(int argc, char* argv[])
 {
 	const std::string DB_PATH = "./JSON/db.json";
-	const std::string LENA_PATH = "./Images/popart.jpeg";
+	const std::string LENA_PATH = "./Images/lena.jpg";
+	const std::string POPART_PATH = "./Images/lena.jpg";
 	const std::string CAP_IMG_FOLDER = "./Bottlecaps/";
 	const int MAX_WIDTH = 5000; // Max frame width in mm (used to init slider)
 
@@ -71,7 +72,9 @@ int main(int argc, char* argv[])
 	int wdth_mm = CAP_SIZE +1;
 	int wdth_res = 0;
 	int circ_px = 100;
-	std::string path = LENA_PATH;
+	size_t dotPosition; // Used for altering filepath
+	std::string path = POPART_PATH;
+	std::string outputFilename;
 
 	CapLayoutManager* lom = new SquareLayouter;
 	std::vector<cv::Point> cap_positions;
@@ -122,8 +125,10 @@ int main(int argc, char* argv[])
 			int k = waitKey(0); // Wait for a keystroke in the window
 			switch (k) {
 			case 's': // SAVE
-				std::cout << "Saving image to " << path << std::endl;
-				imwrite(path, img);
+				dotPosition = path.find_last_of(".");
+				outputFilename = path.substr(0, dotPosition) + "_output" + path.substr(dotPosition);
+				std::cout << "Saving image to " << outputFilename << std::endl;
+				imwrite(outputFilename, img);
 				break;
 			case 'b': // LOAD BACKUP
 				std::cout << "Loading backup" << std::endl;
