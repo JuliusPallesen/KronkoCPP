@@ -15,7 +15,7 @@ void CapImport::addCap(fs::path path) {
 }
 
 Cap CapImport::makeCap(fs::path path, int prio, int max_amount) {
-    Mat img = imread(path.string(), IMREAD_UNCHANGED);
+    Mat img = imread(path.string(), cv::IMREAD_UNCHANGED);
     Vec3i color = Vec3i(0,0,0);
     if (img.empty()) {
         throw std::runtime_error("Could not read the image: " + path.string());

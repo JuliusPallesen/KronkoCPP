@@ -18,7 +18,7 @@ std::vector<cv::Point> TriangleLayouter::createLayout(cv::Size imgDims, int fram
 	else {
 		for (int x = circ_px / 2; x < imgDims.width - (circ_px / 2); x += horizontal_offset)
 		{
-			for (int y = circ_px / 2; y < imgDims.height - (circ_px / 2); y += circ_px)
+			for (int y = circ_px / 2; y < imgDims.height - (circ_px / 2) - static_cast<int>(radius * (x_index % 2)); y += circ_px)
 			{
 				positions.push_back(cv::Point(x ,y + static_cast<int>(radius * (x_index % 2))));
 			}

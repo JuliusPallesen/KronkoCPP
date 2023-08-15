@@ -1,0 +1,16 @@
+{
+    "Amount": -1,
+    "Brand": "budweiser",
+    "Color": [
+        73,
+        162,
+        142
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 1,
+    "Path": "./Bottlecaps/budweiser.png",
+    "Priority": 0
+}
