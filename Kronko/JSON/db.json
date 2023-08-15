@@ -10,7 +10,135 @@
         0,
         1
     ],
-    "ID": 1,
+    "ID": 10,
     "Path": "./Bottlecaps/budweiser.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Carlsberg",
+    "Color": [
+        148,
+        227,
+        183
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 11,
+    "Path": "./Bottlecaps/Carlsberg.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Dithmarscher",
+    "Color": [
+        181,
+        220,
+        203
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 12,
+    "Path": "./Bottlecaps/Dithmarscher.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Holsten",
+    "Color": [
+        69,
+        63,
+        166
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 13,
+    "Path": "./Bottlecaps/Holsten.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Kellerbier",
+    "Color": [
+        93,
+        158,
+        188
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 14,
+    "Path": "./Bottlecaps/Kellerbier.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Kiezmische",
+    "Color": [
+        62,
+        48,
+        98
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 15,
+    "Path": "./Bottlecaps/Kiezmische.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Nordlicht",
+    "Color": [
+        107,
+        62,
+        32
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 16,
+    "Path": "./Bottlecaps/Nordlicht.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Ratsherren_Pink",
+    "Color": [
+        155,
+        148,
+        129
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 17,
+    "Path": "./Bottlecaps/Ratsherren_Pink.png",
+    "Priority": 0
+}
+{
+    "Amount": -1,
+    "Brand": "Veltins",
+    "Color": [
+        93,
+        94,
+        68
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 18,
+    "Path": "./Bottlecaps/Veltins.png",
     "Priority": 0
 }
