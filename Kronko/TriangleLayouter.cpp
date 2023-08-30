@@ -4,6 +4,10 @@ TriangleLayouter::TriangleLayouter()
 {
 }
 
+TriangleLayouter::~TriangleLayouter()
+{
+}
+
 std::vector<cv::Point> TriangleLayouter::createLayout(cv::Size imgDims, int frameWidth) {
 	int circ_px = (int)(((float)imgDims.width / (float)frameWidth) * CAP_SIZE);
 	double radius = static_cast<double>(circ_px / 2.0);
@@ -27,8 +31,3 @@ std::vector<cv::Point> TriangleLayouter::createLayout(cv::Size imgDims, int fram
 	}
 	return positions;
 }
-std::vector<cv::Point> TriangleLayouter::createLayoutmm(cv::Mat& img, int frameWidth)
-{
-	return std::vector<cv::Point>();
-}
-;

@@ -1,5 +1,9 @@
 #include "CapDB.h"
 
+CapDB::CapDB(): path("./")
+{
+}
+
 CapDB::CapDB(std::string path): path(path)
 {
 }

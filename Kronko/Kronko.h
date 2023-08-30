@@ -3,6 +3,7 @@
 #include <string>
 #include <opencv2\opencv.hpp>
 #include <filesystem>
+#include "KronkoHelpers.h"
 #include "CapImport.h"
 #include "Cap.h"
 #include "PackingLayouter.h"
@@ -16,3 +17,5 @@
 #include "CapMap.h"
 #include "CapAssembley.h"
 #include "Types.h"
+#include "KronkoConfig.h"
+#include "KronkoGUI.h"

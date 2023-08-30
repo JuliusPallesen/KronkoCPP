@@ -11,6 +11,7 @@ class CapDB
 protected:
 	std::string path;
 public:
+	CapDB();
 	CapDB(std::string path);
 
 	virtual void storeCap(Cap& cap);

@@ -26,7 +26,7 @@ public:
 	int max_amount;
 
 	Cap(json data);
-	Cap(int id, std::string brand, std::string path, cv::Vec3i color, cv::Vec2b dir, cv::Mat img, int prio = 1, int max_amount = -1);
+	Cap(int id, std::string brand, std::string path, cv::Vec3i color, cv::Vec2b dir, cv::Mat img, int prio = 1, int max_amount = INT_MAX);
 	json serializeJSON();
 	std::string toString();
 };

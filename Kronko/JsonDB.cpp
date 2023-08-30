@@ -1,5 +1,15 @@
 #include "JsonDB.h"
 
+JsonDB::JsonDB()
+{
+	JsonDB("./db.json");
+}
+
+JsonDB::JsonDB(std::string path)
+{
+	this->path = path;
+}
+
 void JsonDB::storeCap(Cap& cap)
 {
 	std::ofstream jsonFile(this->path, std::ios::app);

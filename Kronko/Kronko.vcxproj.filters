@@ -40,6 +40,12 @@
     <Filter Include="Header Files\Color">
       <UniqueIdentifier>{076eff59-0799-432d-b397-ce1a332cf13a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Image">
+      <UniqueIdentifier>{0801d7d1-3a61-4d94-8f0f-b96f457a8516}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Image">
+      <UniqueIdentifier>{53144364-d8af-4a8e-8594-1be9daddf5a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Kronko.cpp">
@@ -81,19 +87,25 @@
     <ClCompile Include="ColorPoint.cpp">
       <Filter>Source Files\Color</Filter>
     </ClCompile>
-    <ClCompile Include="Cap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ImagePreprocess.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CapAssembley.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ColorCustom.cpp">
       <Filter>Source Files\Color</Filter>
     </ClCompile>
+    <ClCompile Include="KronkoConfig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CapAssembley.cpp">
+      <Filter>Source Files\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="ImagePreprocess.cpp">
+      <Filter>Source Files\Image</Filter>
+    </ClCompile>
     <ClCompile Include="CapMap.cpp">
+      <Filter>Source Files\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Cap.cpp">
+      <Filter>Source Files\Import</Filter>
+    </ClCompile>
+    <ClCompile Include="KronkoHelpers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -140,20 +152,26 @@
     <ClInclude Include="ColorPoint.h">
       <Filter>Header Files\Color</Filter>
     </ClInclude>
-    <ClInclude Include="Cap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CapMap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ColorCustom.h">
       <Filter>Header Files\Color</Filter>
     </ClInclude>
-    <ClInclude Include="CapAssembley.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Types.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KronkoConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KronkoHelpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CapMap.h">
+      <Filter>Header Files\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="CapAssembley.h">
+      <Filter>Header Files\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="Cap.h">
+      <Filter>Header Files\Import</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

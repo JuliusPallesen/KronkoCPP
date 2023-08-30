@@ -1,4 +1,6 @@
 #pragma once
+#include <vector>
+#include <opencv2/opencv.hpp>
 
 #define CAP_COLOR_GAUSS	1
 #define CAP_COLOR_POINT	2
@@ -7,6 +9,8 @@
 
 #define CAP_MAP_SIMPLE 0
 #define CAP_MAP_HIST 1
+
+//Turn Cap.cpp and KronkoConfig into Structs instead?
 
 // Bottlecaps have a 26mm diameter
 const int CAP_SIZE = 26;

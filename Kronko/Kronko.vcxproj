@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -111,9 +111,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Program Files\opencv\build\include;C:\Program Files\Libs\json-develop\single_include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Program Files\opencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
-    <ExternalIncludePath>C:\Program Files\opencv\build\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <IncludePath>C:\Program Files\opencv\build\include;C:\Program Files\Libs\tinyfiledialogs;C:\Program Files\Libs\json-develop\single_include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files\opencv\build\x64\vc16\lib;C:\Program Files\Libs\tinyfiledialogs;$(LibraryPath)</LibraryPath>
+    <ExternalIncludePath>C:\Program Files\Libs\tinyfiledialogs;C:\Program Files\opencv\build\include;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Testing|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -244,7 +244,9 @@
     <ClCompile Include="ImagePreprocess.cpp" />
     <ClCompile Include="JsonDB.cpp" />
     <ClCompile Include="Kronko.cpp" />
+    <ClCompile Include="KronkoConfig.cpp" />
     <ClCompile Include="KronkoGUI.cpp" />
+    <ClCompile Include="KronkoHelpers.cpp" />
     <ClCompile Include="PackingLayouter.cpp" />
     <ClCompile Include="CapImport.cpp" />
     <ClCompile Include="SquareLayouter.cpp" />
@@ -264,7 +266,9 @@
     <ClInclude Include="ColorPoint.h" />
     <ClInclude Include="JsonDB.h" />
     <ClInclude Include="Kronko.h" />
+    <ClInclude Include="KronkoConfig.h" />
     <ClInclude Include="KronkoGUI.h" />
+    <ClInclude Include="KronkoHelpers.h" />
     <ClInclude Include="PackingLayouter.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SquareLayouter.h" />

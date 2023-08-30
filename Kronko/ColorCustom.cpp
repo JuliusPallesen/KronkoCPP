@@ -1,11 +1,11 @@
 #include "ColorCustom.h"
 
-ColorCustom::ColorCustom(Vec3i c): col(c)
+ColorCustom::ColorCustom(cv::Vec3i c): col(c)
 {
     this->col = c;
 }
 
-Vec3i ColorCustom::getColorV(Mat& img, Point p, int diameter)
+cv::Vec3i ColorCustom::getColorV(cv::Mat& img, cv::Point p, int diameter)
 {
     return this->col;
 }

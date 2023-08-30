@@ -4,21 +4,20 @@ ColorAvg::ColorAvg()
 {
 }
 
-Vec3i ColorAvg::getColorV(Mat& img, Point p, int diameter)
+cv::Vec3i ColorAvg::getColorV(cv::Mat& img, cv::Point p, int diameter)
 {
-    using namespace cv;
-    Size sz = img.size();
-    if (p == Point(-1, -1)) p = Point(sz.width / 2, sz.height / 2);
+    cv::Size sz = img.size();
+    if (p == cv::Point(-1, -1)) p = cv::Point(sz.width / 2, sz.height / 2);
     if (diameter == -1) diameter = std::min(sz.width-1, sz.height-1) -1;
     if (ColorPicker::isInBounds(img.size(), p, diameter)) 
     {
         //Combine Circle Mask with images Alphachannel
-        Mat mask = Mat::zeros(img.size(), CV_8U);
-        circle(mask, p, diameter/2, Scalar(255), -1);
-        Mat alphaChannel;
-        extractChannel(img, alphaChannel, 3);
-        bitwise_and(mask, alphaChannel, mask);
-        Scalar meanColor = mean(img,mask);
+        cv::Mat mask = cv::Mat::zeros(img.size(), CV_8U);
+        cv::circle(mask, p, diameter/2, cv::Scalar(255), -1);
+        cv::Mat alphaChannel;
+        cv::extractChannel(img, alphaChannel, 3);
+        cv::bitwise_and(mask, alphaChannel, mask);
+        cv::Scalar meanColor = mean(img,mask);
         return cv::Vec3i(
             static_cast<int>(meanColor[0]), 
             static_cast<int>(meanColor[1]), 

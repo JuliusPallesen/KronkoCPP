@@ -5,6 +5,6 @@ class ColorPoint :
 {
 public:
     ColorPoint();
-    Vec3i getColorV(Mat& img, Point p = Point(-1, -1), int diameter = -1) override;
+    cv::Vec3i getColorV(cv::Mat& img, cv::Point p = cv::Point(-1, -1), int diameter = -1) override;
 };
 

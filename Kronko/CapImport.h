@@ -11,27 +11,27 @@
 #include "ColorPoint.h"
 #include "Types.h"
 
-using namespace cv;
 using json = nlohmann::json;
 namespace fs = std::filesystem;
 
 class CapImport
 {
 public:
-	CapImport(CapDB * db, ColorPicker *  cp = new ColorPicker());
-	void addCap(Cap& cap);
+	CapImport(CapDB * db, ColorPicker * cp);
+	CapImport();
+	void addCap(Cap & cap);
 	void addCap(fs::path path);
-	void addFolder(const std::string path);
-	void setColorPicker(ColorPicker* cp);
+	void addFolder(std::string path);
+	void setColorPicker(ColorPicker * cp);
 	std::vector<Cap> getCaps();
 protected:
-	CapDB * db;
+	CapDB * dataBase;
+	ColorPicker * colorPicker;
 	std::vector<Cap> caps;
-	ColorPicker * color_picker;
 	int ids;
 
 	cv::Vec3b getColVec(cv::Mat & img, cv::Vec3b * c = nullptr);
 	cv::Vec2b getDirVector(cv::Mat & img);
-	Cap makeCap(fs::path path, int prio = 0, int max_amount = 10000);
+	Cap makeCap(fs::path path, int prio = 0, int max_amount = INT_MAX);
 };
 

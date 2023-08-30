@@ -7,9 +7,8 @@
 class CapLayoutManager
 {
 public:
-	// returns the center points of all bottlecaps
+	~CapLayoutManager();
 	virtual std::vector<cv::Point> createLayout(cv::Size imgDims, int frameWidth);
-	virtual std::vector<cv::Point> createLayoutmm(cv::Mat & img, int frameWidth);
 protected:
 };
 

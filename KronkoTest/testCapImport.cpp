@@ -1,21 +1,16 @@
 #include "pch.h"
 
 TEST(TestCapImport, TestNoFatalFailConstructor) {
-	ColorPicker cp = ColorPoint();
-	CapDB * db = new JsonDB("./db.json");
-	EXPECT_NO_FATAL_FAILURE(CapImport ci = CapImport(db,&cp));
+	EXPECT_NO_FATAL_FAILURE(CapImport ci(new JsonDB("./db.json"), new ColorPoint()));
 }
 
 TEST(TestCapImport, TestNoThrowConstructor) {
-	ColorPicker cp = ColorPoint();
-	CapDB* db = new JsonDB("./db.json");
-	EXPECT_NO_THROW(CapImport ci = CapImport(db, &cp));
+
+	EXPECT_NO_THROW(CapImport ci(new JsonDB("./db.json"), new ColorPoint()));
 }
 
 TEST(TestCapImport, TestNo) {
-	ColorPicker cp = ColorPoint();
-	CapDB* db = new JsonDB("./db.json");
-	CapImport ci = CapImport(db, &cp);
+	CapImport ci = CapImport(new JsonDB("./db.json"), new ColorPoint::ColorPicker());
 	EXPECT_NO_THROW(ci.addFolder(TEST_IMG_FOLDER));
 	EXPECT_NO_THROW(ci.addFolder(TEST_REAL_CAPS_FOLDR));
 }

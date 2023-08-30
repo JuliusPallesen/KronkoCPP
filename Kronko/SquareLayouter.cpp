@@ -4,6 +4,10 @@ SquareLayouter::SquareLayouter()
 {
 }
 
+SquareLayouter::~SquareLayouter()
+{
+}
+
 std::vector<cv::Point> SquareLayouter::createLayout(cv::Size imgDims, int frameWidth) {
 	int circ_px = (int)(((float)imgDims.width / (float)frameWidth) * CAP_SIZE);
 	std::vector<cv::Point> positions;
@@ -20,13 +24,4 @@ std::vector<cv::Point> SquareLayouter::createLayout(cv::Size imgDims, int frameW
 		}
 	}
 	return positions;
-}
-std::vector<cv::Point> SquareLayouter::createLayoutmm(cv::Mat& img, int frameWidth)
-{
-	cv::Size img_size = img.size();
-	int new_width = (frameWidth / CAP_SIZE) * 100;
-	double scale_factor = (double)new_width / double(img_size.width);
-	img_size = cv::Size2d(new_width, (int)img_size.height * scale_factor);
-	cv::resize(img, img, img_size, cv::INTER_AREA);
-	return createLayout(img_size,frameWidth);
 }
