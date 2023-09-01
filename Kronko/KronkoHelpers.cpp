@@ -1,7 +1,7 @@
 #include "KronkoHelpers.h"
 
 void conditionalResize(cv::Mat& img, int wdth_res) {
-	if (wdth_res != img.cols) {
+	if ((wdth_res != img.cols) && (wdth_res != 0)) {
 		int height = static_cast<int>((static_cast<double>(wdth_res) / static_cast<double>(img.cols)) * static_cast<double>(img.rows));
 		cv::resize(img, img, cv::Size(wdth_res, height));
 	}

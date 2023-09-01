@@ -24,6 +24,7 @@ public:
 	KronkoConfig();
 	~KronkoConfig();
 
+	bool imgOpened;
 	int widthMm;
 	int widthRes, heightRes;
 	cv::Mat img;
@@ -33,7 +34,7 @@ public:
 	ColorPicker * colorPicker = new ColorGauss();
 	CapDB * database = new JsonDB("./JSON/db.json");
 	CapImport capImport = CapImport();
-	CapMap capMapper;
+	CapMap capMapper = CapMap(this->colorPicker);
 
 	void setColorPicker(ColorPicker * cp);
 	std::vector<cv::Point> getLayout(CapLayoutManager* lay, bool preview = true);

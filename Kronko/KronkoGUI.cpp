@@ -68,6 +68,20 @@ void print_help() {
 	std::cout << "Esc/x:\t\t Quit.\n";
 }
 
+void loadImg(KronkoConfig & cfg) {
+	try
+	{
+		cfg.img = openImageWithFileDialog();
+		cfg.widthRes = cfg.img.size().width;
+		cfg.imgOpened = true;
+	}
+	catch (const std::exception& ex)
+	{
+		cfg.imgOpened = false;
+		std::cerr << ex.what() << std::endl;
+	}
+}
+
 int kronkoGUI(KronkoConfig & cfg) {
 	using namespace cv;
 	const int MAX_WIDTH = 5000;
@@ -87,24 +101,26 @@ int kronkoGUI(KronkoConfig & cfg) {
 	Rect windowRectPrev = windowRect;
 
 	while (!cancel) {
-		if (!imgOpened) {
-			try
-			{
-				cfg.img = openImageWithFileDialog();
-				cfg.widthRes = cfg.img.size().width;
-				setTrackbarPos("Resolution", "Kronko", cfg.widthRes);
-				backup = cfg.img.clone();
-				imgOpened = true;
-			}
-			catch (const std::exception& ex)
-			{
-				imgOpened = false;
-				std::cerr << ex.what() << std::endl;
-			}
+		if (!cfg.imgOpened) {
+			loadImg(cfg);
+			cv::setTrackbarPos("Resolution", "Kronko", cfg.widthRes);
+			backup = cfg.img.clone();
 		}
-		imshow("Kronko", cfg.img);
+		try
+		{
+			imshow("Kronko", cfg.img);
+		}
+		catch (const std::exception&)
+		{
+			return 1;
+		}
 		int k = waitKey(0);
 		switch (k) {
+		case 'l': 
+			loadImg(cfg);
+			cv::setTrackbarPos("Resolution", "Kronko", cfg.widthRes);
+			backup = cfg.img.clone();
+			break;
 		case 's':
 			imwrite(cfg.outputFilename, cfg.img);
 			break;

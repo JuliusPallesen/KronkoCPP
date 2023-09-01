@@ -10,8 +10,8 @@
         0,
         1
     ],
-    "ID": 10,
-    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\budweiser.png",
+    "ID": 1,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\BottleCaps\\budweiser.png",
     "Priority": 0
 }
 {
@@ -26,8 +26,8 @@
         0,
         1
     ],
-    "ID": 11,
-    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Carlsberg.png",
+    "ID": 2,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\BottleCaps\\Carlsberg.png",
     "Priority": 0
 }
 {
@@ -42,8 +42,8 @@
         0,
         1
     ],
-    "ID": 12,
-    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Dithmarscher.png",
+    "ID": 3,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\BottleCaps\\Dithmarscher.png",
     "Priority": 0
 }
 {
@@ -58,8 +58,8 @@
         0,
         1
     ],
-    "ID": 13,
-    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Holsten.png",
+    "ID": 4,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\BottleCaps\\Holsten.png",
     "Priority": 0
 }
 {
@@ -74,8 +74,8 @@
         0,
         1
     ],
-    "ID": 14,
-    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Kellerbier.png",
+    "ID": 5,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\BottleCaps\\Kellerbier.png",
     "Priority": 0
 }
 {
@@ -90,8 +90,8 @@
         0,
         1
     ],
-    "ID": 15,
-    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Kiezmische.png",
+    "ID": 6,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\BottleCaps\\Kiezmische.png",
     "Priority": 0
 }
 {
@@ -106,8 +106,8 @@
         0,
         1
     ],
-    "ID": 16,
-    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Nordlicht.png",
+    "ID": 7,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\BottleCaps\\Nordlicht.png",
     "Priority": 0
 }
 {
@@ -122,8 +122,8 @@
         0,
         1
     ],
-    "ID": 17,
-    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Ratsherren_Pink.png",
+    "ID": 8,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\BottleCaps\\Ratsherren_Pink.png",
     "Priority": 0
 }
 {
@@ -138,7 +138,7 @@
         0,
         1
     ],
-    "ID": 18,
-    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Veltins.png",
+    "ID": 9,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\BottleCaps\\Veltins.png",
     "Priority": 0
 }

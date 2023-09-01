@@ -13,8 +13,6 @@ std::vector<cv::Point> TriangleLayouter::createLayout(cv::Size imgDims, int fram
 	double radius = static_cast<double>(circ_px / 2.0);
 	int horizontal_offset = static_cast<int>(radius*sqrt(3));
 	int x_index = 0;
-	std::cout << radius << std::endl;
-	std::cout << horizontal_offset << std::endl;
 	std::vector<cv::Point> positions;
 	if (circ_px <= 0) {
 		throw std::runtime_error("Width too small.");

@@ -6,12 +6,8 @@ void print_args_help() {
 	cout << "--gui -g:\t\t Open interactive Kronko GUI\n";
 	cout << "--input -i:\t\t Followed by input image path (required)\n";
 	cout << "--output -o:\t\t Followed by output image path\n";
-	cout << "--import:\t\t Open the import Cap GUI\n";
-	cout << "--output -o:\t\t followed by output image path\n";
-	cout << "--output -o:\t\t followed by output image path\n";
-	cout << "--output -o:\t\t followed by output image path\n";
-	cout << "--output -o:\t\t followed by output image path\n";
-	cout << "--output -o:\t\t followed by output image path\n";
+	cout << "--import:\t\t Followed by a folder Path containing Cap images\n";
+	cout << "--caps -o:\t\t Followed by a path to a .json file\n";
 }
 
 int main(int argc, char* argv[])
@@ -19,18 +15,20 @@ int main(int argc, char* argv[])
 	bool importGui = false;
 	bool kronkoGui = true;
 	KronkoConfig cfg;
-	cv::Mat img;
 
 	for (int i = 1; i < argc; ++i) {
 		std::string arg = argv[i];
 		if (arg == "--help" || arg == "-?") {
 			print_args_help();
+			return 0;
 		}
 		if (arg == "--nogui" || arg == "-g") {
 			kronkoGui = false;
 		}
 		else if (arg == "--import") {
-			importGui = true;
+			if (i + 1 < argc) {
+				cfg.capImportPaths.push_back(argv[++i]);
+			}
 		}
 		else if (arg == "--output" || arg == "-o") {
 			if (i + 1 < argc) cfg.outputFilename = argv[++i];
@@ -39,18 +37,20 @@ int main(int argc, char* argv[])
 			if (i + 1 < argc) {
 				try
 				{
-					img = readimGBRA((argv[++i]));
+					cfg.img = readimGBRA((argv[++i]));
+					cfg.imgOpened = true;
 				}
 				catch (const std::runtime_error & e)
 				{
 					std::cerr << e.what() << std::endl;
 					return 1;
 				}
-				cfg.img = img;
 			}
 		}
 		else if (arg == "--caps" || arg == "-c") {
-			if (i + 1 < argc) cfg.database = new JsonDB(std::string(argv[++i]));
+			if (i + 1 < argc) {
+				cfg.database = new JsonDB(std::string(argv[++i]));
+			}
 		}
 		else if (arg == "--res" || arg == "-r") {
 			if (i + 2 < argc) {
@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
 		else if (arg == "--triangular-layout" || arg == "-t") {
 			cfg.layouter = new TriangleLayouter();
 		}
-		else if (arg == "--gauss") {
+		else if (arg == "--gauss" || arg == "-g") {
 			cfg.colorPicker = new ColorGauss();
 		}
 		else if (arg == "--point" || arg == "-p") {
@@ -82,6 +82,9 @@ int main(int argc, char* argv[])
 		}
 		else if (arg == "--mean" || arg == "-m") {
 			cfg.colorPicker = new ColorAvg();
+		}
+		else if (arg == "--max-percent") {
+			if (i + 1 < argc) cfg.capMapper.setMaxAmount(std::stoi(argv[++i]));
 		}
 	}
 	if (importGui) cfg.capImport.addFolder(""); 

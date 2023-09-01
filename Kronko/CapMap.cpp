@@ -12,12 +12,10 @@ CapMap::CapMap(ColorPicker *  cp , int maxPercent, int mapMode): colorPicker(cp)
 CapMapping CapMap::createCapMapping(cv::Mat& img, std::vector<cv::Point> positions, std::vector<Cap> caps, int circlePixels) {
 	switch (this->mapMode) {
 	case CAP_MAP_HIST:
-		std::cout << "best\n";
 		return this->createCapMappingHist(img, positions, caps, circlePixels);
 		break;
 	case CAP_MAP_SIMPLE:
-		std::cout << "simple\n";
-		return this->createCapMappingHist(img, positions, caps, circlePixels);
+		return this->createCapMappingSimple(img, positions, caps, circlePixels);
 		break;
 	default:
 		return CapMapping();
@@ -26,7 +24,7 @@ CapMapping CapMap::createCapMapping(cv::Mat& img, std::vector<cv::Point> positio
 
 CapMapping CapMap::createCapMappingSimple(cv::Mat& img, std::vector<cv::Point> & positions, std::vector<Cap>& caps, int circlePixels) {
 	ColorDistanceMap data = getAllDistances(getColorValues(img, positions, circlePixels), caps);
-	std::vector<std::vector<cv::Point>> mapping(caps.size());
+	CapMapping mapping(caps.size(),std::vector<cv::Point>());
 	for (int i = 0; i < data.size(); ++i) {
 		int j = 0;
 		while (mapping[std::get<0>(data[i][j])].size() > caps[std::get<0>(data[i][j])].max_amount) {
@@ -37,10 +35,10 @@ CapMapping CapMap::createCapMappingSimple(cv::Mat& img, std::vector<cv::Point> &
 	return mapping;
 }
 
-CapMapping CapMap::createCapMappingHist(cv::Mat & img, std::vector<cv::Point>& positions, std::vector<Cap>& caps, int circlePixels) {
+CapMapping CapMap::createCapMappingHist(cv::Mat & img, std::vector<cv::Point> & positions, std::vector<Cap> & caps, int circlePixels) {
 	ColorDistanceMap data = getAllDistances(getColorValues(img, positions, circlePixels), caps);
-	CapMapping mapping(caps.size());
-	bool* positions_used = new bool[data.size() + 1];
+	CapMapping mapping(caps.size(), std::vector<cv::Point>());
+	bool * positions_used = new bool[data.size() + 1];
 	std::fill_n(positions_used, data.size() + 1, false);
 	int positions_used_num = 0;
 	int next_best_i = -1;
@@ -125,7 +123,7 @@ std::vector<cv::Vec3i> CapMap::getColorValues(cv::Mat& img, std::vector<cv::Poin
 		{
 			colors.push_back(this->colorPicker->getColorV(img, p, circlePixels));
 		}
-		catch (const std::exception& e)
+		catch (const std::exception&)
 		{
 			colors.push_back(ColorPoint().getColorV(img, p , circlePixels));
 		}

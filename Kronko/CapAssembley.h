@@ -1,4 +1,6 @@
 #pragma once
+#include <thread>
+#include <mutex>
 #include <opencv2/opencv.hpp>
 #include "Types.h"
 #include "Cap.h"

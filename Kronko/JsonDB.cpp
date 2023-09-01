@@ -15,7 +15,6 @@ void JsonDB::storeCap(Cap& cap)
 	std::ofstream jsonFile(this->path, std::ios::app);
 	if (jsonFile.is_open())
 	{
-		std::cout << "JSON: Storing " << cap.brand << std::endl;
 		jsonFile << cap.serializeJSON().dump(4) << std::endl;
 		jsonFile.close();
 	}
@@ -30,7 +29,6 @@ void JsonDB::storeCaps(std::vector<Cap> caps)
 	if (jsonFile.is_open())
 	{
 		for (Cap cap : caps) {
-			std::cout << "JSON: Storing " << cap.brand << '\n';
 			jsonFile << cap.serializeJSON().dump(4) << std::endl;
 		}
 		jsonFile.close();
@@ -42,26 +40,53 @@ void JsonDB::storeCaps(std::vector<Cap> caps)
 
 std::vector<Cap> JsonDB::getCaps()
 {
-	std::vector<Cap> caps;
-	std::ifstream jsonFile(this->path);
-	if (jsonFile.is_open()) {
-		while (!jsonFile.eof()) {
-			try {
-				json jsonData;
-				jsonFile >> jsonData;
-				if (!jsonData.empty()) {  // Check if JSON data is empty before parsing
-					std::cout << "JSON data: " << jsonData.dump() << std::endl; // Print JSON data
-					caps.push_back(Cap::Cap(jsonData));
-				}
-			}
-			catch (const json::parse_error& e) {
-				std::cerr << "JSON parse error: " << e.what() << std::endl;
-			}
-		}
-		jsonFile.close();
-	}
-	return caps;
+    std::ifstream jsonFile(this->path);
+    if (!jsonFile.is_open()) {
+        throw std::runtime_error("Could not open JSON file: " + this->path);
+    }
+
+    std::vector<json> jsonDataVector; // Vector to store JSON data
+    std::mutex dataMutex; // Mutex for protecting access to jsonDataVector
+
+    while (!jsonFile.eof()) {
+        json jsonData;
+        try {
+            jsonFile >> jsonData;
+            if (!jsonData.empty()) {  // Check if JSON data is empty before parsing
+                std::lock_guard<std::mutex> lock(dataMutex); // Lock the mutex
+                jsonDataVector.push_back(jsonData);
+            }
+        }
+        catch (const json::parse_error& e) {
+        }
+    }
+
+    jsonFile.close();
+
+    std::vector<Cap> caps;
+    std::vector<std::thread> threads;
+    std::mutex capsMutex; // Mutex for protecting access to the caps vector
+
+    for (const auto& jsonData : jsonDataVector) {
+        threads.emplace_back([this, &caps, &jsonData, &capsMutex]() {
+            try
+            {
+                Cap cap = Cap(jsonData);
+                std::lock_guard<std::mutex> lock(capsMutex); // Lock the mutex
+                caps.push_back(cap);
+            }
+            catch (const std::exception&){
+            }
+            });
+    }
+
+    for (auto& thread : threads) {
+        thread.join();
+    }
+
+    return caps;
 }
+
 
 void JsonDB::clearDB() {
 	fs::remove(fs::path(this->path));

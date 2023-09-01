@@ -2,10 +2,12 @@
 
 KronkoConfig::KronkoConfig()
 {
+	this->imgOpened = false;
 	this->widthMm = 1000;
 	this->widthRes = 0;
 	this->heightRes = 0;
 	this->outputFilename = "./output.jpg";
+	this->capImportPaths = std::vector<std::string>();
 	this->layouter = new SquareLayouter();
 	this->colorPicker = new ColorGauss();
 	this->database = new JsonDB();
@@ -44,14 +46,21 @@ std::vector<cv::Point> KronkoConfig::getLayout(CapLayoutManager* lay, bool previ
 };
 
 void KronkoConfig::execConfig() {
+	//Import all added folders
+	if (!this->capImportPaths.empty()) for (auto& importPath : this->capImportPaths) this->capImport.addFolder(importPath);
+	if (!this->imgOpened) return;
 	conditionalResize(this->img, this->widthRes);
-	for (auto& importPath : this->capImportPaths) this->capImport.addFolder(importPath); //Import all added folders
 	std::vector<Cap> caps = this->capImport.getCaps();
-	std::vector<cv::Point> positions = this->layouter->createLayout(this->img.size(), this->widthMm);
-	int circlePixels = getCircleSizePx(this->img, this->widthMm);
-	CapMapping map = this->capMapper.createCapMapping(this->img, positions, caps, circlePixels);
-	assembleMapping(this->img, map, caps, circlePixels);
+	if (caps.empty()) {
+		std::cerr << "Couldn't load any Bottlecaps, please specify an import folder or json file.";
+	}
+	else {
+		std::vector<cv::Point> positions = this->layouter->createLayout(this->img.size(), this->widthMm);
+		std::cout << "Overall caps needed: " << positions.size() << std::endl;
+		int circlePixels = getCircleSizePx(this->img, this->widthMm);
+		CapMapping map = this->capMapper.createCapMapping(this->img, positions, caps, circlePixels);
+		for (int i = 0; i < map.size(); i++) std::cout << caps[i].brand << ": " << map[i].size() << std::endl;
+		assembleMapping(this->img, map, caps, circlePixels);
+		cv::imwrite(this->outputFilename, this->img);
+	}
 }
-
-
-

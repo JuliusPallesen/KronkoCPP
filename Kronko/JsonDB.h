@@ -1,6 +1,7 @@
 #pragma once
 #include "CapDB.h"
 #include <fstream>
+#include <thread>
 
 class JsonDB :
     public CapDB
