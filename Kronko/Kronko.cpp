@@ -1,15 +1,5 @@
 #include "Kronko.h"
 
-void execKronkoConfig(KronkoConfig& cfg) {
-	if (cfg.widthRes > 0) cv::resize(cfg.img, cfg.img, cv::Size(cfg.widthRes, (int)(((double) cfg.widthRes / cfg.img.cols) * cfg.img.rows)));
-	for (auto& importPath : cfg.capImportPaths) cfg.capImport.addFolder(importPath); //Import all added folders
-	std::vector<Cap> caps = cfg.capImport.getCaps();
-	std::vector<cv::Point> positions = cfg.layouter->createLayout(cfg.img.size(), cfg.widthMm);
-	int circlePixels = getCircleSizePx(cfg.img, cfg.widthMm);
-	CapMapping map = cfg.capMapper.createCapMapping(cfg.img,positions, caps, circlePixels);
-	assembleMapping(cfg.img,map,caps,circlePixels);
-};
-
 void print_args_help() {
 	using namespace std;
 	cout << "Kronko help:\n";
@@ -94,12 +84,12 @@ int main(int argc, char* argv[])
 			cfg.colorPicker = new ColorAvg();
 		}
 	}
-	if (importGui) cfg.capImport.addFolder("./"); //TODO open importdialogue instead
+	if (importGui) cfg.capImport.addFolder(""); 
 	if (kronkoGui) {
 		return kronkoGUI(cfg);
 	}
 	else {
-		execKronkoConfig(cfg);
+		cfg.execConfig();
 	}
 	return 0;
 }

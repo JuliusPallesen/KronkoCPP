@@ -56,11 +56,11 @@ std::string openFolderWithFileDialog() {
 void print_help() {
 	std::cout << "\nHelp:\n";
 	std::cout << "1-3:\t\t Chose Layouter (Square, Triangle, Packing)\n";
-	std::cout << "g:\t\t Gaussian Colopicker";
-	std::cout << "m:\t\t Mean Colopicker";
-	std::cout << "p:\t\t Point Colopicker";
-	std::cout << "s:\t\t Simple/Normal mapping";
-	std::cout << "h:\t\t Hist/Better mapping";
+	std::cout << "g:\t\t Gaussian Colopicker\n";
+	std::cout << "m:\t\t Mean Colopicker\n";
+	std::cout << "p:\t\t Point Colopicker\n";
+	std::cout << "s:\t\t Simple/Normal mapping\n";
+	std::cout << "h:\t\t Hist/Better mapping\n";
 	std::cout << "i:\t\t Import Caps from DB\n";
 	std::cout << "c:\t\t clear DB\n";
 	std::cout << "s:\t\t Save image\n";
@@ -87,7 +87,6 @@ int kronkoGUI(KronkoConfig & cfg) {
 	Rect windowRectPrev = windowRect;
 
 	while (!cancel) {
-		//check if img initialized
 		if (!imgOpened) {
 			try
 			{
@@ -104,16 +103,16 @@ int kronkoGUI(KronkoConfig & cfg) {
 			}
 		}
 		imshow("Kronko", cfg.img);
-		int k = waitKey(0); // Wait for a keystroke in the window
+		int k = waitKey(0);
 		switch (k) {
-		case 's': // SAVE
+		case 's':
 			imwrite(cfg.outputFilename, cfg.img);
 			break;
-		case 'b': // LOAD BACKUP
+		case 'b':
 			std::cout << "Loading backup" << std::endl;
 			cfg.img = backup.clone();
 			break;
-		case '1': // SQUARE LAYOUTER
+		case '1':
 			std::cout << "Calculating square layout..." << std::endl;
 			capPositions = cfg.getLayout(new SquareLayouter());
 			break;
@@ -121,11 +120,11 @@ int kronkoGUI(KronkoConfig & cfg) {
 			std::cout << "Calculating triangle layout..." << std::endl;
 			capPositions = cfg.getLayout(new TriangleLayouter());
 			break;
-		case 'a': // ASSEMBLE
+		case 'a':
 			std::cout << "Assembeling bottlecaps...\n";
 			cfg.execConfig();
 			break;
-		case 'i': // IMPORT
+		case 'i':
 			std::cout << "Importing folder\n";
 			try
 			{
@@ -137,15 +136,15 @@ int kronkoGUI(KronkoConfig & cfg) {
 				std::cerr << ex.what() << std::endl;
 			}
 			break;
-		case 'c': // CLEAR DB
+		case 'c':
 			std::cout << "Clearing DB\n";
 			cfg.database->clearDB(); // move to cap import?
 			break;
-		case 'g': // GAUSS PICKER
+		case 'g':
 			std::cout << "Gaussian color selection\n";
 			cfg.setColorPicker(new ColorGauss());
 			break;
-		case 'm': // MEAN
+		case 'm':
 			std::cout << "Mean color selection\n";
 			cfg.setColorPicker(new ColorAvg());
 			break;
@@ -153,19 +152,19 @@ int kronkoGUI(KronkoConfig & cfg) {
 			std::cout << "Point color selection\n";
 			cfg.setColorPicker(new ColorPoint());
 			break;
-		case 'n': //HIST MAPPING
+		case 'n':
 			std::cout << "Simple/normal mapping\n";
 			cfg.capMapper.setMapMode(CAP_MAP_SIMPLE);
 			break;
-		case 'h': //SIMPLE MAPPING
+		case 'h':
 			std::cout << "Best/hist mapping\n";
 			cfg.capMapper.setMapMode(CAP_MAP_HIST);
 			break;
-		case 'x': // QUIT
+		case 'x':
 		case 27:
 			cancel = true;
 			break;
-		default: // HELP
+		default:
 			print_help();
 			break;
 		}

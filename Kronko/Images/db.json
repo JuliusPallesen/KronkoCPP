@@ -1,0 +1,144 @@
+{
+    "Amount": 2147483647,
+    "Brand": "budweiser",
+    "Color": [
+        73,
+        162,
+        142
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 10,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\budweiser.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Carlsberg",
+    "Color": [
+        148,
+        227,
+        183
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 11,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Carlsberg.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Dithmarscher",
+    "Color": [
+        181,
+        220,
+        203
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 12,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Dithmarscher.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Holsten",
+    "Color": [
+        69,
+        63,
+        166
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 13,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Holsten.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Kellerbier",
+    "Color": [
+        93,
+        158,
+        188
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 14,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Kellerbier.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Kiezmische",
+    "Color": [
+        62,
+        48,
+        98
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 15,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Kiezmische.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Nordlicht",
+    "Color": [
+        107,
+        62,
+        32
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 16,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Nordlicht.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Ratsherren_Pink",
+    "Color": [
+        155,
+        148,
+        129
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 17,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Ratsherren_Pink.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Veltins",
+    "Color": [
+        93,
+        94,
+        68
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 18,
+    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Veltins.png",
+    "Priority": 0
+}

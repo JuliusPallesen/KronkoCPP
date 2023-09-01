@@ -2,7 +2,7 @@
 
 JsonDB::JsonDB()
 {
-	JsonDB("./db.json");
+	this->path = "./db.json";
 }
 
 JsonDB::JsonDB(std::string path)
