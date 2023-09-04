@@ -17,7 +17,7 @@ Kronko is a C++ application I created as a fun side project to refresh my C++ an
 
 ![Popart Example](/Examples/Popart.jpg)
 
-![Italian Plumber Guy](/Examples/Mario.jpg)
+![Italian Plumber Guy](/Examples/Mario.png)
 
 ## Features
 
