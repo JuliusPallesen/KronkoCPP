@@ -247,7 +247,6 @@
     <ClCompile Include="KronkoConfig.cpp" />
     <ClCompile Include="KronkoGUI.cpp" />
     <ClCompile Include="KronkoHelpers.cpp" />
-    <ClCompile Include="PackingLayouter.cpp" />
     <ClCompile Include="CapImport.cpp" />
     <ClCompile Include="SquareLayouter.cpp" />
     <ClCompile Include="TriangleLayouter.cpp" />
@@ -264,12 +263,12 @@
     <ClInclude Include="ColorAvg.h" />
     <ClInclude Include="ColorGauss.h" />
     <ClInclude Include="ColorPoint.h" />
+    <ClInclude Include="ImagePreprocess.h" />
     <ClInclude Include="JsonDB.h" />
     <ClInclude Include="Kronko.h" />
     <ClInclude Include="KronkoConfig.h" />
     <ClInclude Include="KronkoGUI.h" />
     <ClInclude Include="KronkoHelpers.h" />
-    <ClInclude Include="PackingLayouter.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SquareLayouter.h" />
     <ClInclude Include="TriangleLayouter.h" />

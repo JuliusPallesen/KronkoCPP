@@ -5,7 +5,6 @@
 #include <filesystem>
 #include "CapImport.h"
 #include "Cap.h"
-#include "PackingLayouter.h"
 #include "SquareLayouter.h"
 #include "TriangleLayouter.h"
 #include "ColorPicker.h"
@@ -17,6 +16,7 @@
 #include "CapAssembley.h"
 #include "Types.h"
 #include "KronkoHelpers.h"
+#include "ImagePreprocess.h"
 
 class KronkoConfig
 {
@@ -32,9 +32,12 @@ public:
 	std::string outputFilename;
 	CapLayoutManager * layouter = new SquareLayouter();
 	ColorPicker * colorPicker = new ColorGauss();
-	CapDB * database = new JsonDB("./JSON/db.json");
 	CapImport capImport = CapImport();
 	CapMap capMapper = CapMap(this->colorPicker);
+	double contrast;
+	double saturation;
+	int quantizationNumber;
+	bool scramble;
 
 	void setColorPicker(ColorPicker * cp);
 	std::vector<cv::Point> getLayout(CapLayoutManager* lay, bool preview = true);

@@ -4,6 +4,7 @@ ColorAvg::ColorAvg()
 {
 }
 
+//still pretty slow
 cv::Vec3i ColorAvg::getColorV(cv::Mat& img, cv::Point p, int diameter)
 {
     cv::Size sz = img.size();

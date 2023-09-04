@@ -23,6 +23,8 @@ public:
 	void addCap(fs::path path);
 	void addFolder(std::string path);
 	void setColorPicker(ColorPicker * cp);
+	void setDB(CapDB * db);
+	void clearDB();
 	std::vector<Cap> getCaps();
 protected:
 	CapDB * dataBase;

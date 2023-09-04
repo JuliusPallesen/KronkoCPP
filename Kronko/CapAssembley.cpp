@@ -1,9 +1,17 @@
 #include "CapAssembley.h"
+
 // TODO:
 //		- Add option for Directional insertion (?)
 //		- Calculate Directional leaning of points (May not always make sense but could lead to cool results)
 
-void overlayImage(cv::Mat& img, cv::Mat& capimg, cv::Point position) {
+void rotateRandom(cv::Mat img){
+	int angle = std::rand() % 360; // Generate a random angle between 0 and 359 degrees
+	cv::Point2f center(img.cols / 2.0f, img.rows / 2.0f);
+	cv::Mat rotationMatrix = cv::getRotationMatrix2D(center, angle, 1.0);
+	cv::warpAffine(img, img, rotationMatrix, img.size(), cv::INTER_LINEAR);
+}
+
+void overlayImage(cv::Mat& img, cv::Mat& capimg, cv::Point position, bool scramble) {
 	using namespace cv;
 	Size capsize = capimg.size();
 	Size imgsize = img.size();
@@ -13,6 +21,7 @@ void overlayImage(cv::Mat& img, cv::Mat& capimg, cv::Point position) {
 		position.y - (capsize.height / 2) >= 0			 &&
 		position.y + (capsize.height / 2) < imgsize.height
 		) {
+		if (scramble) rotateRandom(capimg);
 		for (int x = 0; x < capsize.width; x++)
 		{
 			int x_pos = x + position.x - (capsize.width / 2);
@@ -47,10 +56,11 @@ void combine(cv::Mat & img, cv::Mat & overlay) {
 	}
 }
 
-void assembleMapping(cv::Mat & img, CapMapping map, std::vector<Cap> caps,int circ_px) {
+void assembleMapping(cv::Mat & img, CapMapping map, std::vector<Cap> caps,int circ_px,bool scramble) {
 	assert(map.size() == caps.size());
 	std::vector<std::thread> threads;
 	std::mutex imgMutex;
+	img = cv::Mat::zeros(img.size(), img.type());
 	for (int i = 0; i < map.size(); i++)
 	{
 		const std::vector<cv::Point> insertPositions = map[i];
@@ -60,11 +70,11 @@ void assembleMapping(cv::Mat & img, CapMapping map, std::vector<Cap> caps,int ci
 				try {
 					cv::Mat capImg = caps[i].img;
 					if (!img.empty()) {
-						cv::resize(capImg, capImg, cv::Size(circ_px, circ_px));
+						cv::resize(capImg, capImg, cv::Size(circ_px, circ_px), cv::INTER_NEAREST);
 						cv::Mat overlay = cv::Mat::zeros(img.size(), img.type());
 						for (int j = 0; j < insertPositions.size(); j++)
 						{
-							overlayImage(overlay, capImg, insertPositions[j]);
+							overlayImage(overlay, capImg, insertPositions[j],true);
 						}
 						std::lock_guard<std::mutex> lock(imgMutex);
 						combine(img, overlay);
@@ -80,24 +90,3 @@ void assembleMapping(cv::Mat & img, CapMapping map, std::vector<Cap> caps,int ci
 		thread.join();
 	}
 }
-/*
-
-void assembleMapping(cv::Mat & img, CapMapping map, std::vector<Cap> caps,int circ_px) {
-	for (int i = 0; i < map.size(); i++)
-	{
-		if (!map[i].empty())
-		{
-            cv::Mat capimg = caps[i].img;
-            cv::resize(capimg, capimg, cv::Size(circ_px, circ_px)); // Resize cap to desired size
-			for (int j = 0; j < map[i].size(); j++)
-			{
-				try {
-					overlayImage(img, capimg, map[i][j]);
-				}
-				catch (std::runtime_error& e) {
-					std::cerr << "Failed to overlay image\n" << e.what();
-				}
-			}
-		}
-	}
-}*/

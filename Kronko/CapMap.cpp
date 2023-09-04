@@ -45,6 +45,7 @@ CapMapping CapMap::createCapMappingHist(cv::Mat & img, std::vector<cv::Point> & 
 	int next_best_j = -1;
 	double smallest_unused_distance = 9999.99;
 	int maximum_amount = static_cast<int>((positions.size() / 100.0) * this->maxAmount);
+	std::cout << this->maxAmount << "% = " << maximum_amount << std::endl;
 	while (positions_used_num < positions.size()) {
 		for (int i = 0; i < data.size(); ++i) // Positions
 		{
@@ -83,6 +84,7 @@ CapMapping CapMap::createCapMappingHist(cv::Mat & img, std::vector<cv::Point> & 
 void CapMap::setMaxAmount(int max_amount)
 {
 	this->maxAmount = max_amount;
+	std::cout << "Max amount set: " << this->maxAmount << "\n";
 }
 
 void CapMap::setColorPicker(ColorPicker * cp)

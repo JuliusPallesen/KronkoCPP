@@ -49,6 +49,7 @@ void CapImport::addFolder(const std::string path) {
             if (entry.is_regular_file()) {
                 std::string fileExtension = entry.path().extension().string();
                 if (fileExtension == ".jpg" || fileExtension == ".png") {
+                    std::cout << entry.path() << std::endl;
                     caps.push_back(this->makeCap(entry.path()));
                 }
             }
@@ -64,6 +65,15 @@ void CapImport::addFolder(const std::string path) {
 void CapImport::setColorPicker(ColorPicker * cp)
 {
     this->colorPicker = cp;
+}
+
+void CapImport::setDB(CapDB* db)
+{
+    this->dataBase = db;
+}
+
+void CapImport::clearDB() {
+    this->dataBase->clearDB();
 }
 
 std::vector<Cap> CapImport::getCaps()
@@ -86,8 +96,4 @@ cv::Vec3b CapImport::getColVec(cv::Mat& img, cv::Vec3b * c)
 cv::Vec2b CapImport::getDirVector(cv::Mat& img) {
     //TODO: implement
     return cv::Vec2b(0,1);
-}
-
-void OpenImportDialogue() {
-    //TODO: Select and import bottlecaps
 }

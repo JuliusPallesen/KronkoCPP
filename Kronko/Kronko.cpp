@@ -3,16 +3,24 @@
 void print_args_help() {
 	using namespace std;
 	cout << "Kronko help:\n";
-	cout << "--gui -g:\t\t Open interactive Kronko GUI\n";
-	cout << "--input -i:\t\t Followed by input image path (required)\n";
-	cout << "--output -o:\t\t Followed by output image path\n";
-	cout << "--import:\t\t Followed by a folder Path containing Cap images\n";
-	cout << "--caps -o:\t\t Followed by a path to a .json file\n";
+	cout << "--gui -g:\t\t Open scuffed interactive Kronko GUI\n";
+	cout << "--input -i <path>:\t\t The input image (required)\n";
+	cout << "--output -o <path>:\t\t Followed by output image path (default: ./output.jpg)\n";
+	cout << "--caps -c <path>:\t\t Folder Path containing Cap images used to assemble the image\n";
+	cout << "--import -i <path>:\t\t Path to a .json file containing information about previously imported bottlecaps\n";
+	cout << "--mean -m:\t\t Picks colors for Caps and Image values by calculating the mean color value (slow)\n";
+	cout << "--gauss -g:\t\t Picks colors for Caps and Image values by calculating a gaussian color value (watch out for glare)\n";
+	cout << "--point -p:\t\t Picks colors for Caps and Image values by using color value at the center of the image (fast and bad)\n";
+	cout << "--normal -n:\t\t Maps points in the image to bottlecaps in order of occurence (no consideration for max percentage)\n";
+	cout << "--best -b:\t\t Maps points in the image to bottlecaps by choosing the best fitting caps first and takes maximum percentate into account\n";
+	cout << "--max-percent <int>:\t\t Maximum percentage of a single bottlecap being used when using best-mapping\n";
+	cout << "--contrast <double>:\t\t Value to increase or decrease the contrast of the input image\n";
+	cout << "--saturation <double>:\t\t Value to increase or decrease the saturation of the input image\n";
+	cout << "--quantization <int>:\t\t Color quantize image before assembling\n";
 }
 
 int main(int argc, char* argv[])
 {
-	bool importGui = false;
 	bool kronkoGui = true;
 	KronkoConfig cfg;
 
@@ -25,7 +33,7 @@ int main(int argc, char* argv[])
 		if (arg == "--nogui" || arg == "-g") {
 			kronkoGui = false;
 		}
-		else if (arg == "--import") {
+		else if (arg == "--caps" || arg == "-c") {
 			if (i + 1 < argc) {
 				cfg.capImportPaths.push_back(argv[++i]);
 			}
@@ -47,9 +55,9 @@ int main(int argc, char* argv[])
 				}
 			}
 		}
-		else if (arg == "--caps" || arg == "-c") {
+		else if (arg == "--import" || arg == "-i") {
 			if (i + 1 < argc) {
-				cfg.database = new JsonDB(std::string(argv[++i]));
+				cfg.capImport.setDB(new JsonDB(std::string(argv[++i])));
 			}
 		}
 		else if (arg == "--res" || arg == "-r") {
@@ -75,19 +83,30 @@ int main(int argc, char* argv[])
 			cfg.layouter = new TriangleLayouter();
 		}
 		else if (arg == "--gauss" || arg == "-g") {
-			cfg.colorPicker = new ColorGauss();
+			cfg.setColorPicker(new ColorGauss());
 		}
 		else if (arg == "--point" || arg == "-p") {
-			cfg.colorPicker = new ColorPoint();
+			cfg.setColorPicker(new ColorPoint());
 		}
 		else if (arg == "--mean" || arg == "-m") {
-			cfg.colorPicker = new ColorAvg();
+			cfg.setColorPicker(new ColorAvg());
 		}
 		else if (arg == "--max-percent") {
 			if (i + 1 < argc) cfg.capMapper.setMaxAmount(std::stoi(argv[++i]));
 		}
+		else if (arg == "--contrast") {
+			if (i + 1 < argc) cfg.contrast = std::stod(argv[++i]);
+		}
+		else if (arg == "--saturation") {
+			if (i + 1 < argc) cfg.saturation = std::stod(argv[++i]);
+		}
+		else if (arg == "--quantization") {
+			if (i + 1 < argc) cfg.quantizationNumber = std::stoi(argv[++i]);
+		}
+		else if (arg == "--random-oriantation") {
+			cfg.scramble = true;
+		}
 	}
-	if (importGui) cfg.capImport.addFolder(""); 
 	if (kronkoGui) {
 		return kronkoGUI(cfg);
 	}

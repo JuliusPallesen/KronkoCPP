@@ -54,9 +54,6 @@
     <ClCompile Include="CapLayoutManager.cpp">
       <Filter>Source Files\Layout</Filter>
     </ClCompile>
-    <ClCompile Include="PackingLayouter.cpp">
-      <Filter>Source Files\Layout</Filter>
-    </ClCompile>
     <ClCompile Include="SquareLayouter.cpp">
       <Filter>Source Files\Layout</Filter>
     </ClCompile>
@@ -119,9 +116,6 @@
     <ClInclude Include="CapLayoutManager.h">
       <Filter>Header Files\Layout</Filter>
     </ClInclude>
-    <ClInclude Include="PackingLayouter.h">
-      <Filter>Header Files\Layout</Filter>
-    </ClInclude>
     <ClInclude Include="SquareLayouter.h">
       <Filter>Header Files\Layout</Filter>
     </ClInclude>
@@ -172,6 +166,9 @@
     </ClInclude>
     <ClInclude Include="Cap.h">
       <Filter>Header Files\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="ImagePreprocess.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -55,16 +55,17 @@ std::string openFolderWithFileDialog() {
 
 void print_help() {
 	std::cout << "\nHelp:\n";
-	std::cout << "1-3:\t\t Chose Layouter (Square, Triangle, Packing)\n";
+	std::cout << "1,2:\t\t Chose Layouter (Square, Triangle)\n";
 	std::cout << "g:\t\t Gaussian Colopicker\n";
 	std::cout << "m:\t\t Mean Colopicker\n";
 	std::cout << "p:\t\t Point Colopicker\n";
-	std::cout << "s:\t\t Simple/Normal mapping\n";
-	std::cout << "h:\t\t Hist/Better mapping\n";
-	std::cout << "i:\t\t Import Caps from DB\n";
+	std::cout << "s:\t\t Normal mapping (use bottlecaps in order of position occurence)\n";
+	std::cout << "h:\t\t Best mapping (use best fitting bottlecaps first)\n";
+	std::cout << "i:\t\t Import Caps folder\n";
 	std::cout << "c:\t\t clear DB\n";
 	std::cout << "s:\t\t Save image\n";
 	std::cout << "b:\t\t Load backup image / reset image\n";
+	std::cout << "r:\t\t Toggle sliders on/off to resize Window\n";
 	std::cout << "Esc/x:\t\t Quit.\n";
 }
 
@@ -82,23 +83,27 @@ void loadImg(KronkoConfig & cfg) {
 	}
 }
 
-int kronkoGUI(KronkoConfig & cfg) {
+void createKronkoWindow(KronkoConfig & cfg, int res = 0) {
 	using namespace cv;
 	const int MAX_WIDTH = 5000;
-	bool cancel = false;
-	bool imgOpened = false;
-	cv::Mat backup;
-	std::vector<cv::Point> capPositions;
-	
 	//Trackbars get callback functions with a pointer to the Config as context
 	namedWindow("Kronko", WINDOW_NORMAL);
 	createTrackbar("Width (mm)", "Kronko", nullptr, MAX_WIDTH, [](int value, void* ptr) {((KronkoConfig*)ptr)->widthMm = value; }, &cfg);
 	setTrackbarMin("Width (mm)", "Kronko", CAP_SIZE + 1);
 	setTrackbarPos("Width (mm)", "Kronko", CAP_SIZE + 1);
-	createTrackbar("Resolution", "Kronko", nullptr, MAX_WIDTH,[](int value, void* ptr) { ((KronkoConfig*)ptr)->widthRes = value; }, & cfg);
-	setTrackbarMin("Resolution", "Kronko", 0);
-	Rect windowRect = getWindowImageRect("Kronko");
-	Rect windowRectPrev = windowRect;
+	createTrackbar("Resolution", "Kronko", nullptr, MAX_WIDTH, [](int value, void* ptr) { ((KronkoConfig*)ptr)->widthRes = value; }, &cfg);
+	setTrackbarMin("Resolution", "Kronko", cfg.widthRes);
+}
+
+int kronkoGUI(KronkoConfig & cfg) {
+	using namespace cv;
+	bool cancel = false;
+	bool resizeToggle = false; // used to temporarily delete sliders to resize window
+	bool imgOpened = false;
+	cv::Mat backup;
+	std::vector<cv::Point> capPositions;
+	
+	createKronkoWindow(cfg);
 
 	while (!cancel) {
 		if (!cfg.imgOpened) {
@@ -154,7 +159,7 @@ int kronkoGUI(KronkoConfig & cfg) {
 			break;
 		case 'c':
 			std::cout << "Clearing DB\n";
-			cfg.database->clearDB(); // move to cap import?
+			cfg.capImport.clearDB(); // move to cap import?
 			break;
 		case 'g':
 			std::cout << "Gaussian color selection\n";
@@ -175,6 +180,15 @@ int kronkoGUI(KronkoConfig & cfg) {
 		case 'h':
 			std::cout << "Best/hist mapping\n";
 			cfg.capMapper.setMapMode(CAP_MAP_HIST);
+			break;
+		case 'r':
+			resizeToggle = !resizeToggle;
+			if (resizeToggle) {
+				destroyWindow("Kronko");
+				namedWindow("Kronko", WINDOW_NORMAL);
+			} else {
+				createKronkoWindow(cfg);
+			}
 			break;
 		case 'x':
 		case 27:
