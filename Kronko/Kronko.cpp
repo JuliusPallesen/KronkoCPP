@@ -24,89 +24,96 @@ int main(int argc, char* argv[])
 	bool kronkoGui = true;
 	KronkoConfig cfg;
 
-	for (int i = 1; i < argc; ++i) {
-		std::string arg = argv[i];
-		if (arg == "--help" || arg == "-?") {
-			print_args_help();
-			return 0;
-		}
-		if (arg == "--nogui" || arg == "-g") {
-			kronkoGui = false;
-		}
-		else if (arg == "--caps" || arg == "-c") {
-			if (i + 1 < argc) {
-				cfg.capImportPaths.push_back(argv[++i]);
+	try {
+		for (int i = 1; i < argc; ++i) {
+			std::string arg = argv[i];
+			if (arg == "--help" || arg == "-?") {
+				print_args_help();
+				return 0;
 			}
-		}
-		else if (arg == "--output" || arg == "-o") {
-			if (i + 1 < argc) cfg.outputFilename = argv[++i];
-		}
-		else if (arg == "--input" || arg == "-i") {
-			if (i + 1 < argc) {
-				try
-				{
-					cfg.img = readimGBRA((argv[++i]));
-					cfg.imgOpened = true;
-				}
-				catch (const std::runtime_error & e)
-				{
-					std::cerr << e.what() << std::endl;
-					return 1;
+			if (arg == "--nogui" || arg == "-g") {
+				kronkoGui = false;
+			}
+			else if (arg == "--caps" || arg == "-c") {
+				if (i + 1 < argc) {
+					cfg.capImportPaths.push_back(argv[++i]);
 				}
 			}
-		}
-		else if (arg == "--import" || arg == "-i") {
-			if (i + 1 < argc) {
-				cfg.capImport.setDB(new JsonDB(std::string(argv[++i])));
+			else if (arg == "--output" || arg == "-o") {
+				if (i + 1 < argc) cfg.outputFilename = argv[++i];
 			}
-		}
-		else if (arg == "--res" || arg == "-r") {
-			if (i + 2 < argc) {
-				cfg.widthRes = std::stoi(argv[i + 1]);
-				cfg.heightRes = std::stoi(argv[i + 2]);
-				i += 2;
+			else if (arg == "--input" || arg == "-i") {
+				if (i + 1 < argc) {
+					try
+					{
+						cfg.img = readimGBRA((argv[++i]));
+						cfg.imgOpened = true;
+					}
+					catch (const std::runtime_error& e)
+					{
+						std::cerr << e.what() << std::endl;
+						return 1;
+					}
+				}
 			}
-		}
-		else if (arg == "--width" || arg == "-w") {
-			if (i + 1 < argc) cfg.widthMm = std::stoi(argv[++i]);
-		}
-		else if (arg == "--normal" || arg == "-n") {
-			cfg.capMapper.setMapMode(CAP_MAP_SIMPLE);
-		}
-		else if (arg == "--best" || arg == "-b") {
-			cfg.capMapper.setMapMode(CAP_MAP_HIST);
-		}
-		else if (arg == "--square-layout" || arg == "-s") {
-			cfg.layouter = new SquareLayouter();
-		}
-		else if (arg == "--triangular-layout" || arg == "-t") {
-			cfg.layouter = new TriangleLayouter();
-		}
-		else if (arg == "--gauss" || arg == "-g") {
-			cfg.setColorPicker(new ColorGauss());
-		}
-		else if (arg == "--point" || arg == "-p") {
-			cfg.setColorPicker(new ColorPoint());
-		}
-		else if (arg == "--mean" || arg == "-m") {
-			cfg.setColorPicker(new ColorAvg());
-		}
-		else if (arg == "--max-percent") {
-			if (i + 1 < argc) cfg.capMapper.setMaxAmount(std::stoi(argv[++i]));
-		}
-		else if (arg == "--contrast") {
-			if (i + 1 < argc) cfg.contrast = std::stod(argv[++i]);
-		}
-		else if (arg == "--saturation") {
-			if (i + 1 < argc) cfg.saturation = std::stod(argv[++i]);
-		}
-		else if (arg == "--quantization") {
-			if (i + 1 < argc) cfg.quantizationNumber = std::stoi(argv[++i]);
-		}
-		else if (arg == "--random-oriantation") {
-			cfg.scramble = true;
+			else if (arg == "--import" || arg == "-i") {
+				if (i + 1 < argc) {
+					cfg.capImport.setDB(new JsonDB(std::string(argv[++i])));
+				}
+			}
+			else if (arg == "--res" || arg == "-r") {
+				if (i + 2 < argc) {
+					cfg.widthRes = std::stoi(argv[i + 1]);
+					cfg.heightRes = std::stoi(argv[i + 2]);
+					i += 2;
+				}
+			}
+			else if (arg == "--width" || arg == "-w") {
+				if (i + 1 < argc) cfg.widthMm = std::stoi(argv[++i]);
+			}
+			else if (arg == "--normal" || arg == "-n") {
+				cfg.capMapper.setMapMode(CAP_MAP_SIMPLE);
+			}
+			else if (arg == "--best" || arg == "-b") {
+				cfg.capMapper.setMapMode(CAP_MAP_HIST);
+			}
+			else if (arg == "--square-layout" || arg == "-s") {
+				cfg.layouter = new SquareLayouter();
+			}
+			else if (arg == "--triangular-layout" || arg == "-t") {
+				cfg.layouter = new TriangleLayouter();
+			}
+			else if (arg == "--gauss" || arg == "-g") {
+				cfg.setColorPicker(new ColorGauss());
+			}
+			else if (arg == "--point" || arg == "-p") {
+				cfg.setColorPicker(new ColorPoint());
+			}
+			else if (arg == "--mean" || arg == "-m") {
+				cfg.setColorPicker(new ColorAvg());
+			}
+			else if (arg == "--max-percent") {
+				if (i + 1 < argc) cfg.capMapper.setMaxAmount(std::stoi(argv[++i]));
+			}
+			else if (arg == "--contrast") {
+				if (i + 1 < argc) cfg.contrast = std::stod(argv[++i]);
+			}
+			else if (arg == "--saturation") {
+				if (i + 1 < argc) cfg.saturation = std::stod(argv[++i]);
+			}
+			else if (arg == "--quantization") {
+				if (i + 1 < argc) cfg.quantizationNumber = std::stoi(argv[++i]);
+			}
+			else if (arg == "--random-oriantation") {
+				cfg.scramble = true;
+			}
 		}
 	}
+	catch (std::exception & e) {
+		std::cerr << "Error: " << e.what() <<"\n\n";
+		print_args_help();
+	}
+	
 	if (kronkoGui) {
 		return kronkoGUI(cfg);
 	}
