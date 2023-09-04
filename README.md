@@ -13,7 +13,11 @@
 
 ## Introduction
 
-Kronko is a C++ application I created as a fun side project to refresh my C++ and OpenCV skills. Its main purpose is to turn images into bottlecap artwork, aiming to generate templates for actual bottlecap art. However, achieving easily reproducible and recognizable results can be a bit tricky, often requiring large output images or carefully chosen input images. Kronko offers different approaches for arranging bottlecaps and selecting matching colors. In the following sections, we'll explore some examples of what Kronko can do.
+Kronko is a C++ application I created as a fun side project to refresh my C++ and OpenCV skills. Its main purpose is to turn images into bottlecap artwork, aiming to generate templates for actual bottlecap art. However, achieving easily reproducible and recognizable results can be a bit tricky, often requiring large output images or carefully chosen input images. Kronko offers different approaches for arranging bottlecaps and selecting matching colors. In the following sections, we'll explore some examples of what Kronko can do:
+
+![Popart Example](/Examples/Popart.jpg)
+
+![Italian Plumber Guy](/Examples/Mario.jpg)
 
 ## Features
 
