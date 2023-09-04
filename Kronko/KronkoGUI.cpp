@@ -55,17 +55,17 @@ std::string openFolderWithFileDialog() {
 
 void print_help() {
 	std::cout << "\nHelp:\n";
-	std::cout << "1,2:\t\t Chose Layouter (Square, Triangle)\n";
-	std::cout << "g:\t\t Gaussian Colopicker\n";
-	std::cout << "m:\t\t Mean Colopicker\n";
-	std::cout << "p:\t\t Point Colopicker\n";
-	std::cout << "s:\t\t Normal mapping (use bottlecaps in order of position occurence)\n";
-	std::cout << "h:\t\t Best mapping (use best fitting bottlecaps first)\n";
-	std::cout << "i:\t\t Import Caps folder\n";
-	std::cout << "c:\t\t clear DB\n";
-	std::cout << "s:\t\t Save image\n";
-	std::cout << "b:\t\t Load backup image / reset image\n";
-	std::cout << "r:\t\t Toggle sliders on/off to resize Window\n";
+	std::cout << "1,2:\t Chose Layouter (Square, Triangle)\n";
+	std::cout << "g:\t Gaussian Colopicker\n";
+	std::cout << "m:\t Mean Colopicker\n";
+	std::cout << "p:\t Point Colopicker\n";
+	std::cout << "s:\t Normal mapping (use bottlecaps in order of position occurence)\n";
+	std::cout << "h:\t Best mapping (use best fitting bottlecaps first)\n";
+	std::cout << "i:\t Import Caps folder\n";
+	std::cout << "c:\t Clear DB\n";
+	std::cout << "s:\t Save image\n";
+	std::cout << "b:\t Load backup image / reset image\n";
+	std::cout << "r:\t Toggle sliders on/off to resize Window\n";
 	std::cout << "Esc/x:\t\t Quit.\n";
 }
 
@@ -98,7 +98,7 @@ void createKronkoWindow(KronkoConfig & cfg, int res = 0) {
 int kronkoGUI(KronkoConfig & cfg) {
 	using namespace cv;
 	bool cancel = false;
-	bool resizeToggle = false; // used to temporarily delete sliders to resize window
+	bool resizeToggle = false; // Used to temporarily delete sliders to resize window
 	bool imgOpened = false;
 	cv::Mat backup;
 	std::vector<cv::Point> capPositions;
@@ -182,6 +182,7 @@ int kronkoGUI(KronkoConfig & cfg) {
 			cfg.capMapper.setMapMode(CAP_MAP_HIST);
 			break;
 		case 'r':
+			std::cout << "Toggle Trackbars\n";
 			resizeToggle = !resizeToggle;
 			if (resizeToggle) {
 				destroyWindow("Kronko");

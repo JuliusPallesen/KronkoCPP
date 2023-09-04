@@ -8,7 +8,7 @@ void rotateRandom(cv::Mat img){
 	int angle = std::rand() % 360; // Generate a random angle between 0 and 359 degrees
 	cv::Point2f center(img.cols / 2.0f, img.rows / 2.0f);
 	cv::Mat rotationMatrix = cv::getRotationMatrix2D(center, angle, 1.0);
-	cv::warpAffine(img, img, rotationMatrix, img.size(), cv::INTER_LINEAR);
+	cv::warpAffine(img, img, rotationMatrix, img.size());
 }
 
 void overlayImage(cv::Mat& img, cv::Mat& capimg, cv::Point position, bool scramble) {
@@ -66,15 +66,15 @@ void assembleMapping(cv::Mat & img, CapMapping map, std::vector<Cap> caps,int ci
 		const std::vector<cv::Point> insertPositions = map[i];
 		if (!insertPositions.empty())
 		{
-			threads.emplace_back([&img, &caps, insertPositions, &imgMutex, i, &circ_px]() {
+			threads.emplace_back([&img, &caps, insertPositions, &imgMutex, i, &circ_px, &scramble]() {
 				try {
 					cv::Mat capImg = caps[i].img;
 					if (!img.empty()) {
-						cv::resize(capImg, capImg, cv::Size(circ_px, circ_px), cv::INTER_NEAREST);
+						cv::resize(capImg, capImg, cv::Size(circ_px, circ_px));
 						cv::Mat overlay = cv::Mat::zeros(img.size(), img.type());
 						for (int j = 0; j < insertPositions.size(); j++)
 						{
-							overlayImage(overlay, capImg, insertPositions[j],true);
+							overlayImage(overlay, capImg, insertPositions[j], scramble);
 						}
 						std::lock_guard<std::mutex> lock(imgMutex);
 						combine(img, overlay);

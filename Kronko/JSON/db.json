@@ -1,0 +1,400 @@
+{
+    "Amount": 2147483647,
+    "Brand": "Astra_Urtyp",
+    "Color": [
+        132,
+        151,
+        174
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 1,
+    "Path": ".\\Kronko\\BottleCaps\\Astra_Urtyp.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "budweiser",
+    "Color": [
+        69,
+        127,
+        155
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 2,
+    "Path": ".\\Kronko\\BottleCaps\\budweiser.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Carlsberg",
+    "Color": [
+        62,
+        156,
+        73
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 3,
+    "Path": ".\\Kronko\\BottleCaps\\Carlsberg.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Dithmarscher_Urtyp",
+    "Color": [
+        181,
+        157,
+        90
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 4,
+    "Path": ".\\Kronko\\BottleCaps\\Dithmarscher_Urtyp.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Floetzinger",
+    "Color": [
+        179,
+        173,
+        142
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 5,
+    "Path": ".\\Kronko\\BottleCaps\\Floetzinger.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Fritz_Cola",
+    "Color": [
+        90,
+        79,
+        59
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 6,
+    "Path": ".\\Kronko\\BottleCaps\\Fritz_Cola.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Fritz_Orange",
+    "Color": [
+        156,
+        185,
+        178
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 7,
+    "Path": ".\\Kronko\\BottleCaps\\Fritz_Orange.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Heineken",
+    "Color": [
+        138,
+        140,
+        62
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 8,
+    "Path": ".\\Kronko\\BottleCaps\\Heineken.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Holsten_A",
+    "Color": [
+        134,
+        132,
+        133
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 9,
+    "Path": ".\\Kronko\\BottleCaps\\Holsten_A.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Holsten_B",
+    "Color": [
+        129,
+        120,
+        44
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 10,
+    "Path": ".\\Kronko\\BottleCaps\\Holsten_B.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Kellerbier",
+    "Color": [
+        96,
+        161,
+        188
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 11,
+    "Path": ".\\Kronko\\BottleCaps\\Kellerbier.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Kiezmische",
+    "Color": [
+        173,
+        166,
+        111
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 12,
+    "Path": ".\\Kronko\\BottleCaps\\Kiezmische.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Krombacher_Aktion",
+    "Color": [
+        192,
+        172,
+        109
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 13,
+    "Path": ".\\Kronko\\BottleCaps\\Krombacher_Aktion.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Krombacher_Radler_Aktion",
+    "Color": [
+        171,
+        177,
+        141
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 14,
+    "Path": ".\\Kronko\\BottleCaps\\Krombacher_Radler_Aktion.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Maisel_Alkoholfrei",
+    "Color": [
+        213,
+        158,
+        27
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 15,
+    "Path": ".\\Kronko\\BottleCaps\\Maisel_Alkoholfrei.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Maisel_IPA",
+    "Color": [
+        73,
+        44,
+        156
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 16,
+    "Path": ".\\Kronko\\BottleCaps\\Maisel_IPA.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Maisel_Pale_Ale",
+    "Color": [
+        130,
+        176,
+        69
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 17,
+    "Path": ".\\Kronko\\BottleCaps\\Maisel_Pale_Ale.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Nordlicht",
+    "Color": [
+        169,
+        163,
+        138
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 18,
+    "Path": ".\\Kronko\\BottleCaps\\Nordlicht.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Puelleken",
+    "Color": [
+        172,
+        169,
+        143
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 19,
+    "Path": ".\\Kronko\\BottleCaps\\Puelleken.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Ratsherren_Pink",
+    "Color": [
+        166,
+        109,
+        164
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 20,
+    "Path": ".\\Kronko\\BottleCaps\\Ratsherren_Pink.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Ratsherrn_Pale_Ale",
+    "Color": [
+        78,
+        104,
+        88
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 21,
+    "Path": ".\\Kronko\\BottleCaps\\Ratsherrn_Pale_Ale.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Rothaus",
+    "Color": [
+        101,
+        102,
+        185
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 22,
+    "Path": ".\\Kronko\\BottleCaps\\Rothaus.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Stoertebeker",
+    "Color": [
+        153,
+        122,
+        61
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 23,
+    "Path": ".\\Kronko\\BottleCaps\\Stoertebeker.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Veltins",
+    "Color": [
+        175,
+        179,
+        152
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 24,
+    "Path": ".\\Kronko\\BottleCaps\\Veltins.png",
+    "Priority": 0
+}
+{
+    "Amount": 2147483647,
+    "Brand": "Wickueler",
+    "Color": [
+        165,
+        142,
+        110
+    ],
+    "Direction": [
+        0,
+        1
+    ],
+    "ID": 25,
+    "Path": ".\\Kronko\\BottleCaps\\Wickueler.png",
+    "Priority": 0
+}

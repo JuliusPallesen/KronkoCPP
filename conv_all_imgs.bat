@@ -4,15 +4,14 @@ setlocal enabledelayedexpansion
 :: Record the start time
 set "start_time=!time!"
 
-set exe_path="C:\Users\juliu\source\repos\Kronko\x64\Debug\Kronko.exe" 
+set exe_path=".\x64\Debug\Kronko.exe" 
 
-set folder_path="C:\Users\juliu\source\repos\Kronko\Kronko\Images"
-set output_folder="C:\Users\juliu\source\repos\Kronko\Kronko\Images\output"
+set folder_path=".\Kronko\Images"
+set output_folder=".\Kronko\Images\output"
 
-set caps_path="C:\Users\juliu\source\repos\Kronko\Kronko\BottleCaps"
+set caps_path=".\Kronko\BottleCaps"
 
-set db_path=!caps_path!
-set db_json_path=%db_path%\db.json
+set db_json_path=".\Kronko\JSON\db.json"
 
 if exist "%db_json_path%" (
     del "%db_json_path%"
