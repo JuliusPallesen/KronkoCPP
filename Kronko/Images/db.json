@@ -2,9 +2,9 @@
     "Amount": 2147483647,
     "Brand": "Astra_Urtyp",
     "Color": [
-        36,
-        34,
-        106
+        132,
+        151,
+        174
     ],
     "Direction": [
         0,
@@ -18,9 +18,9 @@
     "Amount": 2147483647,
     "Brand": "budweiser",
     "Color": [
-        73,
-        162,
-        142
+        69,
+        127,
+        155
     ],
     "Direction": [
         0,
@@ -34,9 +34,9 @@
     "Amount": 2147483647,
     "Brand": "Carlsberg",
     "Color": [
-        148,
-        227,
-        183
+        62,
+        156,
+        73
     ],
     "Direction": [
         0,
@@ -50,9 +50,9 @@
     "Amount": 2147483647,
     "Brand": "Dithmarscher_Urtyp",
     "Color": [
-        91,
-        68,
-        39
+        181,
+        157,
+        90
     ],
     "Direction": [
         0,
@@ -66,9 +66,9 @@
     "Amount": 2147483647,
     "Brand": "Floetzinger",
     "Color": [
-        197,
-        188,
-        144
+        179,
+        173,
+        142
     ],
     "Direction": [
         0,
@@ -82,9 +82,9 @@
     "Amount": 2147483647,
     "Brand": "Fritz_Cola",
     "Color": [
-        33,
-        28,
-        27
+        90,
+        79,
+        59
     ],
     "Direction": [
         0,
@@ -98,9 +98,9 @@
     "Amount": 2147483647,
     "Brand": "Fritz_Orange",
     "Color": [
-        98,
-        160,
-        189
+        156,
+        185,
+        178
     ],
     "Direction": [
         0,
@@ -114,9 +114,9 @@
     "Amount": 2147483647,
     "Brand": "Heineken",
     "Color": [
-        61,
-        52,
-        180
+        138,
+        140,
+        62
     ],
     "Direction": [
         0,
@@ -130,9 +130,9 @@
     "Amount": 2147483647,
     "Brand": "Holsten_A",
     "Color": [
-        69,
-        63,
-        166
+        134,
+        132,
+        133
     ],
     "Direction": [
         0,
@@ -146,9 +146,9 @@
     "Amount": 2147483647,
     "Brand": "Holsten_B",
     "Color": [
-        73,
-        36,
-        184
+        129,
+        120,
+        44
     ],
     "Direction": [
         0,
@@ -162,8 +162,8 @@
     "Amount": 2147483647,
     "Brand": "Kellerbier",
     "Color": [
-        93,
-        158,
+        96,
+        161,
         188
     ],
     "Direction": [
@@ -178,9 +178,9 @@
     "Amount": 2147483647,
     "Brand": "Kiezmische",
     "Color": [
-        62,
-        48,
-        98
+        173,
+        166,
+        111
     ],
     "Direction": [
         0,
@@ -194,9 +194,9 @@
     "Amount": 2147483647,
     "Brand": "Krombacher_Aktion",
     "Color": [
-        179,
-        134,
-        86
+        192,
+        172,
+        109
     ],
     "Direction": [
         0,
@@ -210,9 +210,9 @@
     "Amount": 2147483647,
     "Brand": "Krombacher_Radler_Aktion",
     "Color": [
-        237,
-        205,
-        145
+        171,
+        177,
+        141
     ],
     "Direction": [
         0,
@@ -226,9 +226,9 @@
     "Amount": 2147483647,
     "Brand": "Maisel_Alkoholfrei",
     "Color": [
-        206,
-        150,
-        3
+        213,
+        158,
+        27
     ],
     "Direction": [
         0,
@@ -242,9 +242,9 @@
     "Amount": 2147483647,
     "Brand": "Maisel_IPA",
     "Color": [
-        16,
-        12,
-        67
+        73,
+        44,
+        156
     ],
     "Direction": [
         0,
@@ -258,9 +258,9 @@
     "Amount": 2147483647,
     "Brand": "Maisel_Pale_Ale",
     "Color": [
-        60,
-        93,
-        15
+        130,
+        176,
+        69
     ],
     "Direction": [
         0,
@@ -274,9 +274,9 @@
     "Amount": 2147483647,
     "Brand": "Nordlicht",
     "Color": [
-        107,
-        62,
-        32
+        169,
+        163,
+        138
     ],
     "Direction": [
         0,
@@ -288,33 +288,17 @@
 }
 {
     "Amount": 2147483647,
-    "Brand": "output",
+    "Brand": "Puelleken",
     "Color": [
-        0,
-        0,
-        0
+        172,
+        169,
+        143
     ],
     "Direction": [
         0,
         1
     ],
     "ID": 19,
-    "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\output.jpg",
-    "Priority": 0
-}
-{
-    "Amount": 2147483647,
-    "Brand": "Puelleken",
-    "Color": [
-        109,
-        113,
-        55
-    ],
-    "Direction": [
-        0,
-        1
-    ],
-    "ID": 20,
     "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Puelleken.png",
     "Priority": 0
 }
@@ -322,15 +306,15 @@
     "Amount": 2147483647,
     "Brand": "Ratsherren_Pink",
     "Color": [
-        155,
-        148,
-        129
+        166,
+        109,
+        164
     ],
     "Direction": [
         0,
         1
     ],
-    "ID": 21,
+    "ID": 20,
     "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Ratsherren_Pink.png",
     "Priority": 0
 }
@@ -338,15 +322,15 @@
     "Amount": 2147483647,
     "Brand": "Ratsherrn_Pale_Ale",
     "Color": [
-        32,
-        61,
-        66
+        78,
+        104,
+        88
     ],
     "Direction": [
         0,
         1
     ],
-    "ID": 22,
+    "ID": 21,
     "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Ratsherrn_Pale_Ale.png",
     "Priority": 0
 }
@@ -354,15 +338,15 @@
     "Amount": 2147483647,
     "Brand": "Rothaus",
     "Color": [
-        63,
-        66,
-        162
+        101,
+        102,
+        185
     ],
     "Direction": [
         0,
         1
     ],
-    "ID": 23,
+    "ID": 22,
     "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Rothaus.png",
     "Priority": 0
 }
@@ -370,15 +354,15 @@
     "Amount": 2147483647,
     "Brand": "Stoertebeker",
     "Color": [
-        146,
-        110,
-        53
+        153,
+        122,
+        61
     ],
     "Direction": [
         0,
         1
     ],
-    "ID": 24,
+    "ID": 23,
     "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Stoertebeker.png",
     "Priority": 0
 }
@@ -386,15 +370,15 @@
     "Amount": 2147483647,
     "Brand": "Veltins",
     "Color": [
-        93,
-        94,
-        68
+        175,
+        179,
+        152
     ],
     "Direction": [
         0,
         1
     ],
-    "ID": 25,
+    "ID": 24,
     "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Veltins.png",
     "Priority": 0
 }
@@ -402,15 +386,15 @@
     "Amount": 2147483647,
     "Brand": "Wickueler",
     "Color": [
-        66,
-        35,
-        180
+        165,
+        142,
+        110
     ],
     "Direction": [
         0,
         1
     ],
-    "ID": 26,
+    "ID": 25,
     "Path": "C:\\Users\\juliu\\source\\repos\\Kronko\\Kronko\\Bottlecaps\\Wickueler.png",
     "Priority": 0
 }
